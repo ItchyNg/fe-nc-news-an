@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../api";
+import { Link } from "@reach/router";
 
 class DisplayArticlesByTopics extends React.Component {
   state = {
@@ -19,7 +20,10 @@ class DisplayArticlesByTopics extends React.Component {
       <ul>
         {articlesByTopic.map(article => (
           <li key={article.article_id}>
-            {article.title} --- {article.topic}
+            {" "}
+            <Link to={`/articles/${article.article_id}`}>
+              {article.title} --- {article.topic}{" "}
+            </Link>
           </li>
         ))}
       </ul>

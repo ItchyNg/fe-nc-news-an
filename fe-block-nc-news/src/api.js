@@ -23,9 +23,11 @@ export const getListOfArticles = (author, topic, sort_by, order) => {
       return data.articles;
     });
 };
-// "queries": [
-//   "author",
-//   "topic",
-//   "sort_by",
-//   "order"
-// ],
+
+export const getArticleById = article_id => {
+  return axios
+    .get(`http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    });
+};

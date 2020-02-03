@@ -9,9 +9,16 @@ export const getListOfTopics = () => {
     });
 };
 
-export const getListOfArticles = () => {
+export const getListOfArticles = (author, topic, sort_by, order) => {
   return axios
-    .get("http://itch-nc-news-app.herokuapp.com/api/articles")
+    .get("http://itch-nc-news-app.herokuapp.com/api/articles", {
+      params: {
+        author: author,
+        topic: topic,
+        sort_by: sort_by,
+        order: order
+      }
+    })
     .then(({ data }) => {
       return data.articles;
     });

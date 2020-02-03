@@ -17,7 +17,9 @@ class DisplayArticles extends React.Component {
     return (
       <ul>
         {listOfArticles.map(articles => (
-          <li key={articles.title}>{articles.title}</li>
+          <ol key={articles.title}>
+            {articles.title} <button>*</button>
+          </ol>
         ))}
       </ul>
     );

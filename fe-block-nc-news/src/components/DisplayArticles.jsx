@@ -1,7 +1,27 @@
 import React from "react";
+import * as api from "../api";
 
-const DisplayArticles = () => {
-  return <body>INSERT ARTICLES HERE</body>;
-};
+class DisplayArticles extends React.Component {
+  state = {
+    listOfArticles: []
+  };
+
+  componentDidMount() {
+    api.getListOfArticles().then(articles => {
+      this.setState({ listOfArticles: articles });
+    });
+  }
+
+  render() {
+    const { listOfArticles } = this.state;
+    return (
+      <ul>
+        {listOfArticles.map(articles => (
+          <li key={articles.title}>{articles.title}</li>
+        ))}
+      </ul>
+    );
+  }
+}
 
 export default DisplayArticles;

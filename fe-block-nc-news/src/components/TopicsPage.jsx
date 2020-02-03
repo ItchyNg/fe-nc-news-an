@@ -1,11 +1,15 @@
 import React from "react";
-import axios from "axios";
+import DisplayTopics from "./DisplayTopics";
 
 const TopicsPage = () => {
   return (
-    <header>
-      <h2>TopicPage</h2>
-    </header>
+    <div>
+      <header>
+        <h2>TopicPage</h2>
+      </header>
+
+      <DisplayTopics />
+    </div>
   );
 };
 

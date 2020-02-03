@@ -31,3 +31,13 @@ export const getArticleById = article_id => {
       return data.article;
     });
 };
+
+export const getCommentsByArticleId = article_id => {
+  return axios
+    .get(
+      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments?sort_by=votes&order=desc`
+    )
+    .then(({ data }) => {
+      return data.comments;
+    });
+};

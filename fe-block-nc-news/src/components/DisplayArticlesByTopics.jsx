@@ -20,7 +20,6 @@ class DisplayArticlesByTopics extends React.Component {
       <ul>
         {articlesByTopic.map(article => (
           <li key={article.article_id}>
-            {" "}
             <Link to={`/articles/${article.article_id}`}>
               {article.title} --- {article.topic}{" "}
             </Link>

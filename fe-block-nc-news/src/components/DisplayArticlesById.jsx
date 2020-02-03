@@ -1,19 +1,24 @@
 import React from "react";
 import * as api from "../api";
+import DisplayComments from "./DisplayComments";
 
 class DisplayArticlesById extends React.Component {
-  state = { articleById: [] };
+  state = {
+    articleById: [],
+    isLoading: true
+  };
 
   componentDidMount() {
     const { article_id } = this.props;
     api
       .getArticleById(article_id)
-      .then(article => this.setState({ articleById: article }));
+      .then(article =>
+        this.setState({ articleById: article, isLoading: false })
+      );
   }
 
   render() {
     const { articleById } = this.state;
-    console.log(this.state.articleById);
     return (
       <div>
         <h3>
@@ -23,6 +28,7 @@ class DisplayArticlesById extends React.Component {
           Author: {articleById.author} || Created at {articleById.created_at}
         </p>
         <main>{articleById.body} </main>
+        <DisplayComments article_id={articleById.article_id} />
       </div>
     );
   }

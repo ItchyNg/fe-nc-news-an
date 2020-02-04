@@ -35,7 +35,7 @@ export const getArticleById = article_id => {
 export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return axios
     .get(
-      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments?sort_by=votes&order=desc`,
+      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
       {
         params: {
           sort_by: sort_by,
@@ -47,3 +47,17 @@ export const getCommentsByArticleId = (article_id, sort_by, order) => {
       return data.comments;
     });
 };
+
+export const postAnItem = (article_id, input) => {
+  console.log(article_id, input, "<<<");
+  return axios
+    .post(
+      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
+      input
+    )
+    .then(({ data }) => {
+      console.dir(data, "<<<<DATA");
+      return data.comment;
+    });
+};
+///api/articles/:article_id/comments

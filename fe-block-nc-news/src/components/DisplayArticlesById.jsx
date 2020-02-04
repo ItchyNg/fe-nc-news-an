@@ -4,8 +4,7 @@ import DisplayComments from "./DisplayComments";
 
 class DisplayArticlesById extends React.Component {
   state = {
-    articleById: [],
-    isLoading: true
+    articleById: []
   };
 
   componentDidMount() {

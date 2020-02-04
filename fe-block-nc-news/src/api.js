@@ -32,10 +32,16 @@ export const getArticleById = article_id => {
     });
 };
 
-export const getCommentsByArticleId = article_id => {
+export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return axios
     .get(
-      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments?sort_by=votes&order=desc`
+      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments?sort_by=votes&order=desc`,
+      {
+        params: {
+          sort_by: sort_by,
+          order: order
+        }
+      }
     )
     .then(({ data }) => {
       return data.comments;

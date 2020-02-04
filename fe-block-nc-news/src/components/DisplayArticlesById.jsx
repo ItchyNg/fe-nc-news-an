@@ -18,6 +18,15 @@ class DisplayArticlesById extends React.Component {
       );
   }
 
+  handleToggle = event => {
+    event.preventDefault();
+    this.setState(currentState => {
+      return {
+        viewToggler: !currentState.viewToggler
+      };
+    });
+  };
+
   render() {
     const { articleById, isLoading } = this.state;
     if (isLoading) {
@@ -26,12 +35,21 @@ class DisplayArticlesById extends React.Component {
     return (
       <div>
         <h3>{articleById.title}</h3>
-        <h4>liked by: {articleById.votes} </h4>
-        <p>
-          Author: {articleById.author} || Created at {articleById.created_at}
-        </p>
-        <main>{articleById.body} </main>
-        <DisplayComments article_id={articleById.article_id} />
+        <section>
+          <h4>liked by: {articleById.votes} </h4>
+          <p>
+            Author: {articleById.author} || Created at {articleById.created_at}
+          </p>
+          <p>{articleById.body} </p>
+        </section>
+
+        <label onClick={this.handleToggle}>
+          <button>View Comments</button>
+        </label>
+
+        {this.state.viewToggler && (
+          <DisplayComments article_id={articleById.article_id} />
+        )}
       </div>
     );
   }

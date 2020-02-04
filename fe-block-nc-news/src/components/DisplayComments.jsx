@@ -9,7 +9,8 @@ class DisplayComments extends React.Component {
     sortBy: null || "votes",
     orderBy: null || "desc",
     username: null || "jessjelly", //prob have to props this to addComments
-    isLoading: true
+    isLoading: true,
+    viewToggler: false
   };
 
   componentDidMount() {
@@ -57,6 +58,15 @@ class DisplayComments extends React.Component {
     this.setState({ commentsByArticleId: updatedComments });
   };
 
+  handleToggle = event => {
+    event.preventDefault();
+    this.setState(currentState => {
+      return {
+        viewToggler: !currentState.viewToggler
+      };
+    });
+  };
+
   render() {
     const { commentsByArticleId, username, isLoading } = this.state;
 
@@ -81,7 +91,6 @@ class DisplayComments extends React.Component {
             Least Popular
           </button>
         </label>
-        {console.log(commentsByArticleId, "<<comments by ART ID")}
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>
             <p>
@@ -102,11 +111,16 @@ class DisplayComments extends React.Component {
           </section>
         ))}
 
-        <p>ADD A COMMENT</p>
-        <AddComment
-          article_id={this.props.article_id}
-          addCommentToArray={this.addCommentToArray}
-        />
+        <label onClick={this.handleToggle}>
+          <button>ADD A COMMENT</button>
+        </label>
+
+        {this.state.viewToggler && (
+          <AddComment
+            article_id={this.props.article_id}
+            addCommentToArray={this.addCommentToArray}
+          />
+        )}
       </div>
     );
   }

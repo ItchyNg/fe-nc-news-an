@@ -4,7 +4,9 @@ import DisplayComments from "./DisplayComments";
 
 class DisplayArticlesById extends React.Component {
   state = {
-    articleById: []
+    articleById: [],
+    isLoading: true,
+    viewToggler: false
   };
 
   componentDidMount() {
@@ -17,7 +19,10 @@ class DisplayArticlesById extends React.Component {
   }
 
   render() {
-    const { articleById } = this.state;
+    const { articleById, isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
     return (
       <div>
         <h3>{articleById.title}</h3>

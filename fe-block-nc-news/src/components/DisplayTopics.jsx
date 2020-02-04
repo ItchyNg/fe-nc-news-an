@@ -4,17 +4,20 @@ import { Link } from "@reach/router";
 
 class DisplayTopics extends React.Component {
   state = {
-    listOfTopics: []
+    listOfTopics: [],
+    isLoading: true
   };
 
   componentDidMount() {
     api.getListOfTopics().then(topics => {
-      this.setState({ listOfTopics: topics });
+      this.setState({ listOfTopics: topics, isLoading: false });
     });
   }
   render() {
-    const { listOfTopics } = this.state;
-
+    const { listOfTopics, isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
     return (
       <ul>
         {listOfTopics.map(topic => (

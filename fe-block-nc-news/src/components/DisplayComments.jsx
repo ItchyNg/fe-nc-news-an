@@ -8,10 +8,18 @@ class DisplayComments extends React.Component {
     commentsByArticleId: [],
     sortBy: null || "votes",
     orderBy: null || "desc",
-    username: null || "jessjelly" //prob have to props this to addComments
+    username: null || "jessjelly", //prob have to props this to addComments
+    isLoading: true
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const { sortBy, orderBy } = this.state;
+    api
+      .getCommentsByArticleId(this.props.article_id, sortBy, orderBy)
+      .then(comments =>
+        this.setState({ commentsByArticleId: comments, isLoading: false })
+      );
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { sortBy, orderBy } = this.state;
@@ -50,19 +58,20 @@ class DisplayComments extends React.Component {
   };
 
   render() {
-    const { commentsByArticleId, username } = this.state;
-    console.log(commentsByArticleId);
+    const { commentsByArticleId, username, isLoading } = this.state;
 
-    console.log(this.state.sortBy, this.state.orderBy, "<<<>>>><<");
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
 
     return (
       <div>
         <h3>Comments:</h3>
         <label onClick={this.handleClick}>
-          <button name="created_at" value="asc">
+          <button name="created_at" value="desc">
             Newest
           </button>
-          <button name="created_at" value="desc">
+          <button name="created_at" value="asc">
             Oldest
           </button>
           <button name="votes" value="desc">
@@ -72,14 +81,14 @@ class DisplayComments extends React.Component {
             Least Popular
           </button>
         </label>
-
+        {console.log(commentsByArticleId, "<<comments by ART ID")}
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>
             <p>
               Author: {comment.author} created: {comment.created_at}
             </p>
             <p>
-              Body: {comment.body}{" "}
+              Body: {comment.body}
               {comment.author === username ? (
                 <DeleteComment
                   comment_id={comment.comment_id}

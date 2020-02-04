@@ -4,18 +4,24 @@ import { Link } from "@reach/router";
 
 class DisplayArticlesByTopics extends React.Component {
   state = {
-    articlesByTopic: []
+    articlesByTopic: [],
+    isLoading: true
   };
 
   componentDidMount() {
     const { topic } = this.props;
     api
       .getListOfArticles("", topic)
-      .then(articles => this.setState({ articlesByTopic: articles }));
+      .then(articles =>
+        this.setState({ articlesByTopic: articles, isLoading: false })
+      );
   }
 
   render() {
-    const { articlesByTopic } = this.state;
+    const { articlesByTopic, isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
     return (
       <ul>
         {articlesByTopic.map(article => (

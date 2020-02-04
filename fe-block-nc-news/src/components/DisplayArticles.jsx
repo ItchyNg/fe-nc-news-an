@@ -11,12 +11,13 @@ class DisplayArticles extends React.Component {
       { date: "created_at" },
       { comments: "comment_count" },
       { votes: "votes" }
-    ]
+    ],
+    isLoading: true
   };
 
   componentDidMount() {
     api.getListOfArticles().then(articles => {
-      this.setState({ listOfArticles: articles });
+      this.setState({ listOfArticles: articles, isLoading: false });
     });
   }
 
@@ -37,8 +38,10 @@ class DisplayArticles extends React.Component {
   };
 
   render() {
-    const { listOfArticles, sortByArray } = this.state;
-    console.log(this.state.orderBy, this.state.sortBy);
+    const { listOfArticles, sortByArray, isLoading } = this.state;
+    if (isLoading) {
+      return <p>Loading...</p>;
+    }
     return (
       <div>
         <label onClick={this.handleClick}>

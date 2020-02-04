@@ -28,9 +28,9 @@ class DisplayComments extends React.Component {
 
   handleClick = event => {
     event.preventDefault();
-    const keyToUpdate = event.target.name;
-    const inputValue = event.target.value;
-    this.setState({ [keyToUpdate]: inputValue });
+    const sortByValue = event.target.name;
+    const orderByValue = event.target.value;
+    this.setState({ ["sortBy"]: sortByValue, ["orderBy"]: orderByValue });
   };
 
   addCommentToArray = newComment => {
@@ -42,7 +42,7 @@ class DisplayComments extends React.Component {
   };
 
   updateCommentsAfterDeletedComment = comment_id => {
-    const { commentsByArticleId } = this.state;
+    const { commentsByArticleId } = this.state; //filters through the array of comments to remove the one that was delete, then setState to re-render the page
     let updatedComments = commentsByArticleId.filter(
       comments => comments.comment_id !== comment_id
     );
@@ -52,33 +52,26 @@ class DisplayComments extends React.Component {
   render() {
     const { commentsByArticleId, username } = this.state;
     console.log(commentsByArticleId);
+
+    console.log(this.state.sortBy, this.state.orderBy, "<<<>>>><<");
+
     return (
       <div>
         <h3>Comments:</h3>
         <label onClick={this.handleClick}>
-          <button>Newest</button>
-          <button>Oldest</button>
-          <button>Most Popular</button>
-          <button>Least Popular</button>
+          <button name="created_at" value="asc">
+            Newest
+          </button>
+          <button name="created_at" value="desc">
+            Oldest
+          </button>
+          <button name="votes" value="desc">
+            Most Popular
+          </button>
+          <button name="votes" value="asc">
+            Least Popular
+          </button>
         </label>
-        {/* <label onClick={this.handleClick}>
-          Order:
-          <button value="asc" name="orderBy">
-            ASC
-          </button>
-          <button value="desc" name="orderBy">
-            DESC
-          </button>
-        </label>
-        <label onClick={this.handleClick}>
-          Sort By:
-          <button value="votes" name="sortBy">
-            Votes
-          </button>
-          <button value="created_at" name="sortBy">
-            Date
-          </button>
-        </label> */}
 
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>

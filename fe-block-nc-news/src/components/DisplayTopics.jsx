@@ -18,11 +18,11 @@ class DisplayTopics extends React.Component {
     return (
       <ul>
         {listOfTopics.map(topic => (
-          <li key={topic.slug}>
+          <ol key={topic.slug}>
             <Link to={`/topics/${topic.slug}`}>
               <button>{topic.slug}</button>
             </Link>
-          </li>
+          </ol>
         ))}
       </ul>
     );

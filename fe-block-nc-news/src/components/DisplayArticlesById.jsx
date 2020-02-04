@@ -20,9 +20,8 @@ class DisplayArticlesById extends React.Component {
     const { articleById } = this.state;
     return (
       <div>
-        <h3>
-          {articleById.title} {articleById.votes}
-        </h3>
+        <h3>{articleById.title}</h3>
+        <h4>liked by: {articleById.votes} </h4>
         <p>
           Author: {articleById.author} || Created at {articleById.created_at}
         </p>

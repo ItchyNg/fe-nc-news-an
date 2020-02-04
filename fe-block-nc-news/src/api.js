@@ -49,15 +49,19 @@ export const getCommentsByArticleId = (article_id, sort_by, order) => {
 };
 
 export const postAnItem = (article_id, input) => {
-  console.log(article_id, input, "<<<");
   return axios
     .post(
       `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
       input
     )
     .then(({ data }) => {
-      console.dir(data, "<<<<DATA");
       return data.comment;
     });
 };
-///api/articles/:article_id/comments
+
+export const deleteComment = comment_id => {
+  return axios.delete(
+    `http://itch-nc-news-app.herokuapp.com/api/comments/${comment_id}`
+  );
+};
+//api/comments/:comment_id

@@ -41,8 +41,17 @@ class DisplayComments extends React.Component {
     });
   };
 
+  updateCommentsAfterDeletedComment = comment_id => {
+    const { commentsByArticleId } = this.state;
+    let updatedComments = commentsByArticleId.filter(
+      comments => comments.comment_id !== comment_id
+    );
+    this.setState({ commentsByArticleId: updatedComments });
+  };
+
   render() {
     const { commentsByArticleId, username } = this.state;
+    console.log(commentsByArticleId);
     return (
       <div>
         <h3>Comments:</h3>
@@ -77,9 +86,15 @@ class DisplayComments extends React.Component {
               Author: {comment.author} created: {comment.created_at}
             </p>
             <p>
-              {" "}
               Body: {comment.body}{" "}
-              {comment.author === username ? <DeleteComment /> : null}
+              {comment.author === username ? (
+                <DeleteComment
+                  comment_id={comment.comment_id}
+                  updateCommentsAfterDeletedComment={
+                    this.updateCommentsAfterDeletedComment
+                  }
+                />
+              ) : null}
             </p>
             <p>Votes:{comment.votes}</p>
           </section>

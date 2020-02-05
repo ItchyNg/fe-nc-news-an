@@ -30,8 +30,9 @@ class AddComment extends React.Component {
 
   render() {
     const { username, body } = this.state;
-    console.log("body", body);
-    console.log("props", this.props.article_id);
+    if (!username) {
+      return <p>Please Log in!</p>;
+    }
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

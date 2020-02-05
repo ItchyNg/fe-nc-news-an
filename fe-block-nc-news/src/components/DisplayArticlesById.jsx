@@ -44,7 +44,7 @@ class DisplayArticlesById extends React.Component {
         </section>
 
         <label onClick={this.handleToggle}>
-          <button>View Comments</button>
+          <button>View {articleById.comment_count} Comments</button>
         </label>
 
         {this.state.viewToggler && (

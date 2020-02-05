@@ -39,7 +39,7 @@ class DisplayComments extends React.Component {
     event.preventDefault();
     const sortByValue = event.target.name;
     const orderByValue = event.target.value;
-    this.setState({ ["sortBy"]: sortByValue, ["orderBy"]: orderByValue });
+    this.setState({ sortBy: sortByValue, orderBy: orderByValue });
   };
 
   addCommentToArray = newComment => {
@@ -91,6 +91,7 @@ class DisplayComments extends React.Component {
             Least Popular
           </button>
         </label>
+
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>
             <p>

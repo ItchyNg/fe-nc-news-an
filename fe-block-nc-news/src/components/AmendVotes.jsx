@@ -1,4 +1,5 @@
 import React from "react";
+import * as api from "../api";
 
 class AmendVote extends React.Component {
   state = {
@@ -8,20 +9,28 @@ class AmendVote extends React.Component {
   };
 
   handleClick = (change, type, type2) => {
-    this.setState(currentState => {
-      return {
-        voteChange: currentState.voteChange + change,
-        [type2]: currentState.type,
-        [type]: !currentState.type2
-      };
-    });
+    const { location, comment_id } = this.props;
+    const { voteChange } = this.state;
+
+    this.setState(
+      currentState => {
+        return {
+          voteChange: currentState.voteChange + change,
+          [type2]: currentState.type,
+          [type]: !currentState.type2
+        };
+      },
+      () => {
+        api.patchVote(location, comment_id, {
+          inc_votes: change
+        });
+      }
+    );
   };
 
   render() {
     const { voteNumber } = this.props;
     const { voteChange, upVote, downVote } = this.state;
-
-    console.log(voteChange);
     return (
       <section>
         <button
@@ -30,7 +39,7 @@ class AmendVote extends React.Component {
         >
           ^
         </button>
-        <p>Votes:{voteNumber + voteChange}</p>
+        <p>Likes: {voteNumber + voteChange}</p>
         <button
           onClick={() => this.handleClick(-1, "downVote", "upVote")}
           disabled={downVote}

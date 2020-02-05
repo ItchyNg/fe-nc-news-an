@@ -1,6 +1,7 @@
 import React from "react";
 import * as api from "../api";
 import DisplayComments from "./DisplayComments";
+import AmendVotes from "./AmendVotes";
 
 class DisplayArticlesById extends React.Component {
   state = {
@@ -34,13 +35,21 @@ class DisplayArticlesById extends React.Component {
     }
     return (
       <div>
+        {console.log(articleById)}
         <h3>{articleById.title}</h3>
         <section>
-          <h4>liked by: {articleById.votes} </h4>
+          <h4>
+            <AmendVotes
+              voteNumber={articleById.votes}
+              location="articles"
+              comment_id={articleById.article_id}
+            />
+          </h4>
           <p>
             Author: {articleById.author} || Created at{" "}
             {new Date(articleById.created_at).toLocaleString()}
           </p>
+
           <p>{articleById.body} </p>
         </section>
 

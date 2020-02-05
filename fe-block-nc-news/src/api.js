@@ -61,6 +61,16 @@ export const postAnItem = (article_id, input) => {
 export const deleteComment = comment_id => {
   return axios.delete(
     `http://itch-nc-news-app.herokuapp.com/api/comments/${comment_id}`
-  );
+  ); //should have a then and return item to check if successful??
 };
-//api/comments/:comment_id
+
+export const patchVote = (location, id, input) => {
+  //comments or articles for location
+  console.log(location, id, input);
+  return axios
+    .patch(`http://itch-nc-news-app.herokuapp.com/api/${location}/${id}`, input)
+    .then(({ data }) => {
+      console.log(data, "<<<< data");
+      return data;
+    });
+};

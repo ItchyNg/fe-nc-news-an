@@ -112,7 +112,11 @@ class DisplayComments extends React.Component {
               ) : null}
             </p>
 
-            <AmendVotes voteNumber={comment.votes} />
+            <AmendVotes
+              voteNumber={comment.votes}
+              location="comments"
+              comment_id={comment.comment_id}
+            />
           </section>
         ))}
 

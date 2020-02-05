@@ -2,6 +2,7 @@ import React from "react";
 import * as api from "../api";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
+import AmendVotes from "./AmendVotes";
 
 class DisplayComments extends React.Component {
   state = {
@@ -110,7 +111,8 @@ class DisplayComments extends React.Component {
                 />
               ) : null}
             </p>
-            <p>Votes:{comment.votes}</p>
+
+            <AmendVotes voteNumber={comment.votes} />
           </section>
         ))}
 

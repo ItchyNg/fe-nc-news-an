@@ -5,7 +5,6 @@ import * as api from "../api";
 
 class AddComment extends React.Component {
   state = {
-    username: null || "jessjelly",
     body: ""
   };
 
@@ -18,7 +17,8 @@ class AddComment extends React.Component {
   };
 
   handleSubmit = event => {
-    const { username, body } = this.state;
+    const { body } = this.state;
+    const { username } = this.props;
     event.preventDefault();
     api
       .postAnItem(this.props.article_id, { username, body })
@@ -29,7 +29,8 @@ class AddComment extends React.Component {
   };
 
   render() {
-    const { username, body } = this.state;
+    const { body } = this.state;
+    const { username } = this.props;
     if (!username) {
       return <p>Please Log in!</p>;
     }

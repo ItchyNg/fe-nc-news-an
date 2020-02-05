@@ -10,7 +10,6 @@ class AmendVote extends React.Component {
 
   handleClick = (change, type, type2) => {
     const { location, comment_id } = this.props;
-    const { voteChange } = this.state;
 
     this.setState(
       currentState => {
@@ -29,25 +28,28 @@ class AmendVote extends React.Component {
   };
 
   render() {
-    const { voteNumber } = this.props;
+    const { voteNumber, username } = this.props;
     const { voteChange, upVote, downVote } = this.state;
-    return (
-      <section>
-        <button
-          onClick={() => this.handleClick(1, "upVote", "downVote")}
-          disabled={upVote}
-        >
-          ^
-        </button>
-        <p>Likes: {voteNumber + voteChange}</p>
-        <button
-          onClick={() => this.handleClick(-1, "downVote", "upVote")}
-          disabled={downVote}
-        >
-          v
-        </button>
-      </section>
-    );
+    if (username) {
+      return (
+        <section>
+          <button
+            onClick={() => this.handleClick(1, "upVote", "downVote")}
+            disabled={upVote}
+          >
+            ^
+          </button>
+          <p>Likes: {voteNumber + voteChange}</p>
+          <button
+            onClick={() => this.handleClick(-1, "downVote", "upVote")}
+            disabled={downVote}
+          >
+            v
+          </button>
+        </section>
+      );
+    }
+    return <p>Likes: {voteNumber + voteChange}</p>;
   }
 }
 

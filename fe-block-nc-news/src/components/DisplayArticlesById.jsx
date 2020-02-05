@@ -42,6 +42,7 @@ class DisplayArticlesById extends React.Component {
 
   render() {
     const { articleById, isLoading, err } = this.state;
+    const { username } = this.props;
     if (err) {
       return <ErrorPage err={err} />;
     }
@@ -54,6 +55,7 @@ class DisplayArticlesById extends React.Component {
         <section>
           <h4>
             <AmendVotes
+              username={username}
               voteNumber={articleById.votes}
               location="articles"
               comment_id={articleById.article_id}
@@ -72,7 +74,10 @@ class DisplayArticlesById extends React.Component {
         </label>
 
         {this.state.viewToggler && (
-          <DisplayComments article_id={articleById.article_id} />
+          <DisplayComments
+            username={username}
+            article_id={articleById.article_id}
+          />
         )}
       </div>
     );

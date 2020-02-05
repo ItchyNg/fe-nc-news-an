@@ -20,6 +20,12 @@ class App extends React.Component {
     this.setState({ username: user });
   };
 
+  handleClick = () => {
+    this.setState(currentState => {
+      return { viewLoginPage: !currentState.viewLoginPage };
+    });
+  };
+
   render() {
     const { username, viewLoginPage } = this.state;
     return (
@@ -27,15 +33,7 @@ class App extends React.Component {
         <Header />
         {!username && (
           <div>
-            <button
-              onClick={() =>
-                this.setState(currentState => {
-                  return { viewLoginPage: !currentState.viewLoginPage };
-                })
-              }
-            >
-              Log In Here
-            </button>
+            <button onClick={this.handleClick}>Log In Here</button>
             {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
           </div>
         )}

@@ -9,7 +9,7 @@ class DisplayComments extends React.Component {
     commentsByArticleId: [],
     sortBy: null || "votes",
     orderBy: null || "desc",
-    username: null || "jessjelly", //prob have to props this to addComments
+    // username: null || "jessjelly", //prob have to props this to addComments
     isLoading: true,
     viewToggler: false
   };
@@ -47,7 +47,7 @@ class DisplayComments extends React.Component {
   addCommentToArray = newComment => {
     this.setState(currentState => {
       return {
-        commentsByArticleId: [newComment, ...currentState.commentsByArticleId]
+        commentsByArticleId: [...currentState.commentsByArticleId, newComment]
       };
     });
   };
@@ -70,7 +70,8 @@ class DisplayComments extends React.Component {
   };
 
   render() {
-    const { commentsByArticleId, username, isLoading } = this.state;
+    const { commentsByArticleId, isLoading } = this.state;
+    const { username } = this.props;
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -113,6 +114,7 @@ class DisplayComments extends React.Component {
             </p>
 
             <AmendVotes
+              username={username}
               voteNumber={comment.votes}
               location="comments"
               comment_id={comment.comment_id}
@@ -126,6 +128,7 @@ class DisplayComments extends React.Component {
 
         {this.state.viewToggler && (
           <AddComment
+            username={username}
             article_id={this.props.article_id}
             addCommentToArray={this.addCommentToArray}
           />

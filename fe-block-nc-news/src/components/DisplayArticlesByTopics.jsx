@@ -1,6 +1,7 @@
 import React from "react";
 import * as api from "../api";
 import { Link } from "@reach/router";
+import ErrorPage from "../ErrorPage";
 
 class DisplayArticlesByTopics extends React.Component {
   state = {
@@ -13,7 +14,8 @@ class DisplayArticlesByTopics extends React.Component {
       { comments: "comment_count" },
       { votes: "votes" }
     ],
-    isLoading: true
+    isLoading: true,
+    err: null
   };
 
   componentDidMount() {
@@ -22,16 +24,26 @@ class DisplayArticlesByTopics extends React.Component {
       .getListOfArticles("", topic)
       .then(articles =>
         this.setState({ articlesByTopic: articles, isLoading: false })
-      );
+      )
+      .catch(err => {
+        this.setState({
+          err: { response: { status: "404", statusText: "Topic Not Found" } }
+        });
+      });
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { sortBy, orderBy } = this.state;
     const { topic } = this.props;
     if (sortBy !== prevState.sortBy || orderBy !== prevState.orderBy) {
-      api.getListOfArticles("", topic, sortBy, orderBy).then(articles => {
-        this.setState({ articlesByTopic: articles });
-      });
+      api
+        .getListOfArticles("", topic, sortBy, orderBy)
+        .then(articles => {
+          this.setState({ articlesByTopic: articles });
+        })
+        .catch(err => {
+          this.setState({ err });
+        });
     }
   }
 
@@ -43,7 +55,10 @@ class DisplayArticlesByTopics extends React.Component {
   };
 
   render() {
-    const { articlesByTopic, isLoading, sortByArray } = this.state;
+    const { articlesByTopic, isLoading, sortByArray, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    }
     if (isLoading) {
       return <p>Loading...</p>;
     }

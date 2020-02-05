@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import TopicsPage from "./components/TopicsPage";
 import DisplayArticlesByTopics from "./components/DisplayArticlesByTopics";
 import DisplayArticlesById from "./components/DisplayArticlesById";
+import ErrorPage from "./ErrorPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <TopicsPage path="/topics" />
         <DisplayArticlesByTopics path="topics/:topic" />
         <DisplayArticlesById path="articles/:article_id" />
+        <ErrorPage default />
       </Router>
     </div>
   );

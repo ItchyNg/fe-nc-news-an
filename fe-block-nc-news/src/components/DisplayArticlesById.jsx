@@ -2,12 +2,14 @@ import React from "react";
 import * as api from "../api";
 import DisplayComments from "./DisplayComments";
 import AmendVotes from "./AmendVotes";
+import ErrorPage from "../ErrorPage";
 
 class DisplayArticlesById extends React.Component {
   state = {
     articleById: [],
     isLoading: true,
-    viewToggler: false
+    viewToggler: false,
+    err: null
   };
 
   componentDidMount() {
@@ -16,7 +18,17 @@ class DisplayArticlesById extends React.Component {
       .getArticleById(article_id)
       .then(article =>
         this.setState({ articleById: article, isLoading: false })
-      );
+      )
+      .catch(err => {
+        this.setState({
+          err: {
+            response: {
+              status: err.response.status,
+              statusText: "Article Not Found"
+            }
+          }
+        });
+      });
   }
 
   handleToggle = event => {
@@ -29,7 +41,10 @@ class DisplayArticlesById extends React.Component {
   };
 
   render() {
-    const { articleById, isLoading } = this.state;
+    const { articleById, isLoading, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    }
     if (isLoading) {
       return <p>Loading...</p>;
     }

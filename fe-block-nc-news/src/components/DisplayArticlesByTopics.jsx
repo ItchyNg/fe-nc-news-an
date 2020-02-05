@@ -72,12 +72,19 @@ class DisplayArticlesByTopics extends React.Component {
           </button>
         </label>
         <ul>
-          {articlesByTopic.map(article => (
-            <li key={article.article_id}>
-              <Link to={`/articles/${article.article_id}`}>
-                {article.title} --- {article.topic}{" "}
+          {articlesByTopic.map(articles => (
+            <ol key={articles.title}>
+              <p>
+                {articles.title} || written by {articles.author}
+              </p>
+              <p>
+                Votes: {articles.votes} Comments:{articles.comment_count}{" "}
+                Created:{new Date(articles.created_at).toLocaleString()}
+              </p>
+              <Link to={`/articles/${articles.article_id}`}>
+                <button>View {articles.topic}</button>
               </Link>
-            </li>
+            </ol>
           ))}
         </ul>
       </div>

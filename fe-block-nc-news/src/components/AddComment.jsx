@@ -23,7 +23,7 @@ class AddComment extends React.Component {
     api
       .postAnItem(this.props.article_id, { username, body })
       .then(newComment => {
-        this.props.addCommentToArray(newComment);
+        this.props.addCommentToArray(newComment); // we are posting the item first then when this has been successful we will update what the user sees on the page by adding the omment to the array of comments.
         this.setState({ body: "" });
       });
   };

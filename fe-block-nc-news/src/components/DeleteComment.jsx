@@ -5,7 +5,7 @@ const DeleteComment = props => {
   return (
     <label
       onClick={() => {
-        api.deleteComment(props.comment_id);
+        api.deleteComment(props.comment_id); // does not wait until the server returns anything before updating the comment list..., should add an error if the delete returns an error...
         props.updateCommentsAfterDeletedComment(props.comment_id);
       }}
     >

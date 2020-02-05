@@ -1,5 +1,6 @@
 import React from "react";
-import DisplayArticles from "./DisplayArticles";
+// import DisplayArticles from "./DisplayArticles";
+import DisplayArticlesByTopics from "./DisplayArticlesByTopics";
 
 const Homepage = () => {
   return (
@@ -7,7 +8,7 @@ const Homepage = () => {
       <header>
         <h2>HomePage</h2>
       </header>
-      <DisplayArticles />
+      <DisplayArticlesByTopics />
     </div>
   );
 };

@@ -24,13 +24,14 @@ class DisplayComments extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { sortBy, orderBy } = this.state;
+    const { article_id } = this.props;
     if (
       this.props !== prevProps ||
       this.state.orderBy !== prevState.orderBy ||
       this.state.sortBy !== prevState.sortBy
     ) {
       api
-        .getCommentsByArticleId(this.props.article_id, sortBy, orderBy)
+        .getCommentsByArticleId(article_id, sortBy, orderBy)
         .then(comments => this.setState({ commentsByArticleId: comments }));
     }
   }
@@ -95,7 +96,8 @@ class DisplayComments extends React.Component {
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>
             <p>
-              Author: {comment.author} created: {comment.created_at}
+              Author: {comment.author} created:
+              {new Date(comment.created_at).toLocaleString()}
             </p>
             <p>
               Body: {comment.body}

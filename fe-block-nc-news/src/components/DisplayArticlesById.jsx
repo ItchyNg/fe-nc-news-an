@@ -38,7 +38,8 @@ class DisplayArticlesById extends React.Component {
         <section>
           <h4>liked by: {articleById.votes} </h4>
           <p>
-            Author: {articleById.author} || Created at {articleById.created_at}
+            Author: {articleById.author} || Created at{" "}
+            {new Date(articleById.created_at).toLocaleString()}
           </p>
           <p>{articleById.body} </p>
         </section>

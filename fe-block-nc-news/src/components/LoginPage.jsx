@@ -22,10 +22,9 @@ class Login extends React.Component {
 
   render() {
     const { arrayOfUsers } = this.state;
-    console.log(this.state.username, "<<<");
     return (
       <div>
-        Choose user to login with:
+        Choose user to login as:
         <select defaultValue="" onClick={this.handleClick}>
           <option disabled value="">
             username

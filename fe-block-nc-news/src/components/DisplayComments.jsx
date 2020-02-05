@@ -27,7 +27,7 @@ class DisplayComments extends React.Component {
     const { sortBy, orderBy } = this.state;
     const { article_id } = this.props;
     if (
-      this.props !== prevProps ||
+      this.props.article_id !== prevProps.article_id ||
       this.state.orderBy !== prevState.orderBy ||
       this.state.sortBy !== prevState.sortBy
     ) {

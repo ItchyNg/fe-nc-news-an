@@ -37,7 +37,18 @@ class App extends React.Component {
             {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
           </div>
         )}
-        {username && <p>Logged in as {username}</p>}
+        {username && (
+          <p>
+            Logged in as {username}{" "}
+            <button
+              onClick={() => {
+                return this.loggedUser(""), this.handleClick();
+              }}
+            >
+              LOGOUT
+            </button>
+          </p>
+        )}
         <Navbar />
         <Router>
           <Homepage path="/" />

@@ -3,29 +3,55 @@ import * as api from "../api";
 
 class AmendVote extends React.Component {
   state = {
-    voteChange: 0,
+    voteChange: null,
     upVote: false,
     downVote: false
   };
 
   handleClick = (change, type, type2) => {
     const { location, comment_id } = this.props;
+    const { upVote, downVote } = this.state;
 
-    this.setState(
-      currentState => {
-        return {
-          voteChange: currentState.voteChange + change,
-          [type2]: currentState.type,
-          [type]: !currentState.type2
-        };
-      },
-      () => {
-        api.patchVote(location, comment_id, {
-          inc_votes: change
-        });
-      }
-    );
+    if (upVote !== downVote) {
+      this.setState(
+        { upVote: false, downVote: false, voteChange: null },
+        () => {
+          api.patchVote(location, comment_id, {
+            inc_votes: change
+          });
+        }
+      );
+    } else {
+      this.setState(
+        currentState => {
+          return {
+            voteChange: currentState.voteChange + change,
+
+            [type2]: currentState.type,
+            //when you are logged in a vote comment, then sortby it adds another
+            [type]: !currentState.type2
+          };
+        },
+        () => {
+          api.patchVote(location, comment_id, {
+            inc_votes: change
+          });
+        }
+      );
+    }
   };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.username !== prevProps.username) {
+      this.setState(currentState => {
+        return {
+          voteChange: currentState.voteChange,
+          upVote: false,
+          downVote: false
+        };
+      }); //when you vote and log in and log out, the vote count doesnt refresh correctly and jumps around. This only appears users side, server side after a refresh bring the correct vote number
+    }
+  }
 
   render() {
     const { voteNumber, username } = this.props;

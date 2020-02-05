@@ -50,7 +50,6 @@ class DisplayArticlesById extends React.Component {
     }
     return (
       <div>
-        {console.log(articleById)}
         <h3>{articleById.title}</h3>
         <section>
           <h4>

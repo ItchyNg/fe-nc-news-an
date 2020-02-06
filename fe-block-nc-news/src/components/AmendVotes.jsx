@@ -49,7 +49,7 @@ class AmendVote extends React.Component {
           upVote: false,
           downVote: false
         };
-      }); //when you vote and log in and log out, the vote count doesnt refresh correctly and jumps around. This only appears users side, server side after a refresh bring the correct vote number
+      });
     }
   }
 

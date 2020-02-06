@@ -39,10 +39,10 @@ class App extends React.Component {
         )}
         {username && (
           <p>
-            Logged in as {username}{" "}
+            Logged in as {username}
             <button
               onClick={() => {
-                return this.loggedUser(""), this.handleClick();
+                return this.loggedUser("") & this.handleClick();
               }}
             >
               LOGOUT

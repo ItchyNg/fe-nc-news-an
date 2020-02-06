@@ -30,36 +30,48 @@ class App extends React.Component {
     const { username, viewLoginPage } = this.state;
     return (
       <div className="App">
-        <Header />
-        {!username && (
-          <div>
-            <button onClick={this.handleClick}>Log In Here</button>
-            {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
-          </div>
-        )}
-        {username && (
-          <p>
-            Logged in as {username}
-            <button
-              onClick={() => {
-                return this.loggedUser("") & this.handleClick();
-              }}
-            >
-              LOGOUT
-            </button>
-          </p>
-        )}
-        <Navbar />
-        <Router>
-          <Homepage path="/" />
-          <TopicsPage path="/topics" />
-          <DisplayArticlesByTopics path="topics/:topic" />
-          <DisplayArticlesById
-            username={username}
-            path="articles/:article_id"
-          />
-          <ErrorPage default />
-        </Router>
+        <section className="App_Top_Container">
+          <section className="App_Top_Header ">
+            <Header />
+          </section>
+
+          <section className="App_Top_LoginButton_Container">
+            {!username && (
+              <div>
+                <button onClick={this.handleClick}>Log In Here</button>
+                {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
+              </div>
+            )}
+            {username && (
+              <p>
+                Welcome Back {username}!
+                <button
+                  onClick={() => {
+                    return this.loggedUser("") & this.handleClick();
+                  }}
+                >
+                  LOGOUT
+                </button>
+              </p>
+            )}
+          </section>
+          <section className="App_Top_Navbar">
+            <Navbar />
+          </section>
+        </section>
+
+        <main>
+          <Router>
+            <Homepage path="/" />
+            <TopicsPage path="/topics" />
+            <DisplayArticlesByTopics path="topics/:topic" />
+            <DisplayArticlesById
+              username={username}
+              path="articles/:article_id"
+            />
+            <ErrorPage default />
+          </Router>
+        </main>
       </div>
     );
   }

@@ -64,44 +64,49 @@ class DisplayArticlesByTopics extends React.Component {
     }
     return (
       <div>
-        <label onClick={this.handleClick}>
-          {/*Makes buttons for sortBy*/}
-          Sort By:
-          {sortByArray.map(sortByColumns => (
-            <button
-              value={Object.values(sortByColumns)}
-              name="sortBy"
-              key={Object.values(sortByColumns)}
-            >
-              {Object.keys(sortByColumns)}
-            </button>
-          ))}
-        </label>
-        <label onClick={this.handleClick}>
-          Order:
-          <button value="asc" name="orderBy">
-            ASC
-          </button>
-          <button value="desc" name="orderBy">
-            DESC
-          </button>
-        </label>
-        <ul>
-          {articlesByTopic.map(articles => (
-            <ol key={articles.title}>
-              <p>
-                {articles.title} || written by {articles.author}
-              </p>
-              <p>
-                Votes: {articles.votes} Comments:{articles.comment_count}{" "}
-                Created:{new Date(articles.created_at).toLocaleString()}
-              </p>
-              <Link to={`/articles/${articles.article_id}`}>
-                <button>View {articles.topic}</button>
-              </Link>
-            </ol>
-          ))}
-        </ul>
+        <section className="ListOfArticles_Container">
+          <section className="ListOfArticles_SortBar">
+            <label onClick={this.handleClick}>
+              Sort By:
+              {sortByArray.map(sortByColumns => (
+                <button
+                  value={Object.values(sortByColumns)}
+                  name="sortBy"
+                  key={Object.values(sortByColumns)}
+                >
+                  {Object.keys(sortByColumns)}
+                </button>
+              ))}
+            </label>
+            <label onClick={this.handleClick}>
+              Order:
+              <button value="asc" name="orderBy">
+                ASC
+              </button>
+              <button value="desc" name="orderBy">
+                DESC
+              </button>
+            </label>
+          </section>
+          <section className="ListOfArticles_Articles">
+            <ul>
+              {articlesByTopic.map(articles => (
+                <ol key={articles.title} className="ListOfArticles_Cards">
+                  <p className="putBorder">
+                    {articles.title} || written by {articles.author}
+                  </p>
+                  <p className="putBorder">
+                    Votes: {articles.votes} Comments:{articles.comment_count}{" "}
+                    Created:{new Date(articles.created_at).toLocaleString()}
+                  </p>
+                  <Link to={`/articles/${articles.article_id}`}>
+                    <button className="putBorder">View {articles.topic}</button>
+                  </Link>
+                </ol>
+              ))}
+            </ul>
+          </section>
+        </section>
       </div>
     );
   }

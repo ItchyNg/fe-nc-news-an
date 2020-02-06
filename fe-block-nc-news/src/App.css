@@ -1,5 +1,98 @@
 .App {
   text-align: left;
+  display: grid;
+  grid: repeat(6, fit-content(300px)) / repeat(4, 1fr);
+  grid-template-areas:
+    "top top top top"
+    "article article article article"
+    "article article article article"
+    "article article article article"
+    "article article article article"
+    "article article article article";
+  /* color: #e3a559;  border*/
+  /* color: #a24c3e;  number */
+  /* color: #818e5b;
+  background-color: #151515; */
+}
+
+.App_Top_Container {
+  border-style: dashed;
+  border-color: red;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 8fr 2fr;
+  grid-area: top;
+}
+
+.App_Top_Header {
+  border-style: dashed;
+  border-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App_Top_LoginButton_Container {
+  border-style: dashed;
+  border-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.App_Top_Navbar {
+  border-style: dashed;
+  border-color: blue;
+}
+
+.ListOfArticles_Container {
+  border-style: dashed;
+  border-color: green;
+  display: grid;
+  grid-template-areas:
+    "top right"
+    "left right";
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 30px auto;
+}
+
+.ListOfArticles_SortBar {
+  border-style: dashed;
+  border-color: green;
+  grid-area: top;
+}
+
+.ListOfArticles_Articles {
+  border-style: dashed;
+  border-color: green;
+  display: grid;
+  /* grid-template-areas: "left center right"; */
+  justify-content: center;
+  grid-area: left;
+}
+
+.ListOfArticles_Cards {
+  border-style: dashed;
+  border-color: brown;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2% 10% 2% 2%;
+  align-items: center;
+
+  /* replace the align-items */
+}
+
+.putBorder {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: grey;
+}
+main {
+  display: grid;
+  grid-area: article;
+  border-style: dashed;
+  border-color: red;
 }
 
 .Border {

@@ -15,6 +15,15 @@
   background-color: #151515; */
 }
 
+ol {
+  padding: 0px;
+  margin: 0px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
 .App_Top_Container {
   border-style: dashed;
   border-color: red;
@@ -49,11 +58,11 @@
   border-style: dashed;
   border-color: green;
   display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 30px auto;
   grid-template-areas:
     "top right"
     "left right";
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 30px auto;
 }
 
 .ListOfArticles_SortBar {
@@ -65,22 +74,99 @@
 .ListOfArticles_Articles {
   border-style: dashed;
   border-color: green;
-  display: grid;
-  /* grid-template-areas: "left center right"; */
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
   grid-area: left;
 }
 
 .ListOfArticles_Cards {
   border-style: dashed;
   border-color: brown;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 2% 10% 2% 2%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "left right";
+  margin: 5px 5px 5px 5px;
   align-items: center;
 
   /* replace the align-items */
+}
+
+.ListofArticles_Cards_Info {
+  border-style: dashed;
+  border-color: brown;
+  grid-area: right;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  text-align: center;
+}
+
+.ListofArticles_Cards_Title {
+  border-style: dashed;
+  border-color: brown;
+  grid-area: left;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "top top"
+    "left right";
+}
+
+.ListofArticles_Cards_Title_Title {
+  grid-area: top;
+  text-align: left;
+  color: black;
+  font-size: 3vw;
+}
+
+.Article_Container {
+  border-style: dashed;
+  border-color: green;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 150px auto;
+  grid-template-areas:
+    "top right"
+    "left right";
+}
+
+.Article_Title {
+  grid-area: top;
+  border-style: dashed;
+  border-color: green;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "top topright"
+    "left right";
+}
+
+.Article_Title_Likes {
+  grid-area: topright;
+  border-style: dashed;
+  border-color: brown;
+}
+
+.Article_Title_Commentbutton {
+  grid-area: right;
+  border-style: dashed;
+  border-color: brown;
+  text-align: center;
+}
+
+.Article_Comments {
+  grid-area: right;
+  border-style: dashed;
+  border-color: brown;
+}
+
+.Button_Container {
+  border-style: dashed;
+  border-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .putBorder {

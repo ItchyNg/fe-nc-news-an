@@ -50,7 +50,7 @@ class AddComment extends React.Component {
             onChange={event => this.handleChange(event.target.value, "body")}
           />
         </label>
-        <button>Add comment</button>
+        <button>Submit</button>
       </form>
     );
   }

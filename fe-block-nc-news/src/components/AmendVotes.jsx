@@ -58,14 +58,15 @@ class AmendVote extends React.Component {
     const { voteChange, upVote, downVote } = this.state;
     if (username) {
       return (
-        <section>
+        <section className="Button_Container">
+          <p>Likes: {voteNumber + voteChange}</p>
           <button
             onClick={() => this.handleClick(1, "upVote", "downVote")}
             disabled={upVote}
           >
             ^
           </button>
-          <p>Likes: {voteNumber + voteChange}</p>
+
           <button
             onClick={() => this.handleClick(-1, "downVote", "upVote")}
             disabled={downVote}

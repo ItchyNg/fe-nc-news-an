@@ -51,34 +51,42 @@ class DisplayArticlesById extends React.Component {
     }
     return (
       <div>
-        <h3>{articleById.title}</h3>
-        <section>
-          <h4>
-            <AmendVotes
-              username={username}
-              voteNumber={articleById.votes}
-              location="articles"
-              comment_id={articleById.article_id}
-            />
-          </h4>
-          <p>
-            Author: {articleById.author} || Created at{" "}
-            {new Date(articleById.created_at).toLocaleString()}
-          </p>
+        <section className="Article_Container">
+          <section className="Article_Title">
+            <h2 className="putBorder">{articleById.title}</h2>
+            <p className="Article_Title_Likes">
+              <AmendVotes
+                username={username}
+                voteNumber={articleById.votes}
+                location="articles"
+                comment_id={articleById.article_id}
+              />
+            </p>
+            <p className="putBorder">
+              Author: {articleById.author} || Created at{" "}
+              {new Date(articleById.created_at).toLocaleString()}
+            </p>
 
-          <p>{articleById.body} </p>
+            <label
+              onClick={this.handleToggle}
+              className="Article_Title_Commentbutton"
+            >
+              <button>View {articleById.comment_count} Comments</button>
+            </label>
+          </section>
+
+          <section className="ListOfArticles_Articles">
+            <p className="putBorder">{articleById.body} </p>
+          </section>
+          <section className="Article_Comments">
+            {this.state.viewToggler && (
+              <DisplayComments
+                username={username}
+                article_id={articleById.article_id}
+              />
+            )}
+          </section>
         </section>
-
-        <label onClick={this.handleToggle}>
-          <button>View {articleById.comment_count} Comments</button>
-        </label>
-
-        {this.state.viewToggler && (
-          <DisplayComments
-            username={username}
-            article_id={articleById.article_id}
-          />
-        )}
       </div>
     );
   }

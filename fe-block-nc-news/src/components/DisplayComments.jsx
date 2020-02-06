@@ -47,7 +47,7 @@ class DisplayComments extends React.Component {
   addCommentToArray = newComment => {
     this.setState(currentState => {
       return {
-        commentsByArticleId: [...currentState.commentsByArticleId, newComment]
+        commentsByArticleId: [newComment, ...currentState.commentsByArticleId]
       };
     });
   };
@@ -79,6 +79,17 @@ class DisplayComments extends React.Component {
 
     return (
       <div>
+        {" "}
+        <label onClick={this.handleToggle}>
+          <button>ADD A COMMENT</button>
+        </label>
+        {this.state.viewToggler && (
+          <AddComment
+            username={username}
+            article_id={this.props.article_id}
+            addCommentToArray={this.addCommentToArray}
+          />
+        )}
         <h3>Comments:</h3>
         <label onClick={this.handleClick}>
           <button name="created_at" value="desc">
@@ -94,7 +105,6 @@ class DisplayComments extends React.Component {
             Least Popular
           </button>
         </label>
-
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id}>
             <p>
@@ -121,18 +131,6 @@ class DisplayComments extends React.Component {
             />
           </section>
         ))}
-
-        <label onClick={this.handleToggle}>
-          <button>ADD A COMMENT</button>
-        </label>
-
-        {this.state.viewToggler && (
-          <AddComment
-            username={username}
-            article_id={this.props.article_id}
-            addCommentToArray={this.addCommentToArray}
-          />
-        )}
       </div>
     );
   }

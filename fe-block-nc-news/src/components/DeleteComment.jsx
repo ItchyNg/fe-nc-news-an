@@ -9,7 +9,12 @@ const DeleteComment = props => {
         props.updateCommentsAfterDeletedComment(props.comment_id);
       }}
     >
-      <button>DELETE</button>;
+      <button>
+        <i
+          class="far fa-times-circle"
+          style={{ fontSize: "20px", color: "red" }}
+        ></i>
+      </button>
     </label>
   );
 };

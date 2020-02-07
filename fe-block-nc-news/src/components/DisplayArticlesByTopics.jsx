@@ -65,13 +65,14 @@ class DisplayArticlesByTopics extends React.Component {
     return (
       <div>
         <section className="ListOfArticles_Container">
+          {" "}
+          <p className="ListOfArticles_Right"></p>
           <section className="ListOfArticles_SortBar">
             {/*  */}
             <select defaultValue="" name="sortBy" onClick={this.handleClick}>
               <option disabled value="">
                 Sort By
               </option>
-
               {sortByArray.map(sortByColumns => (
                 <option
                   value={Object.values(sortByColumns)}
@@ -80,9 +81,9 @@ class DisplayArticlesByTopics extends React.Component {
                 >
                   {Object.keys(sortByColumns)}
                 </option>
-              ))}
+              ))}{" "}
             </select>
-            {/*  */}
+
             <label onClick={this.handleClick}>
               Order:
               <button value="asc" name="orderBy">
@@ -100,7 +101,7 @@ class DisplayArticlesByTopics extends React.Component {
                 <ol key={articles.title} className="ListOfArticles_Cards">
                   <section className="ListofArticles_Cards_Info">
                     <p className="putBorder">Votes: {articles.votes}</p>
-                    <p className="putBorder">written by: {articles.author}</p>
+                    <p className="putBorder">Written by: {articles.author}</p>
                     <p className="putBorder">
                       Created:{new Date(articles.created_at).toLocaleString()}
                     </p>

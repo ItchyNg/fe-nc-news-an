@@ -64,14 +64,14 @@ class AmendVote extends React.Component {
             onClick={() => this.handleClick(1, "upVote", "downVote")}
             disabled={upVote}
           >
-            ^
+            <i class="far fa-thumbs-up" style={{ fontSize: "10px" }}></i>
           </button>
 
           <button
             onClick={() => this.handleClick(-1, "downVote", "upVote")}
             disabled={downVote}
           >
-            v
+            <i class="fa fa-thumbs-o-down" style={{ fontSize: "10px" }}></i>
           </button>
         </section>
       );

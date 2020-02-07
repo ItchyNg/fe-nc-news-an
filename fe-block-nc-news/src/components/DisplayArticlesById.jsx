@@ -52,7 +52,8 @@ class DisplayArticlesById extends React.Component {
     return (
       <div>
         <section className="Article_Container">
-          {/*  */}
+          {" "}
+          <p className="Article_Right"></p>
           <section className="Article_Title">
             <section className="Article_Title_Title">
               <h2 className="Article_Title_Header">{articleById.title}</h2>
@@ -81,6 +82,7 @@ class DisplayArticlesById extends React.Component {
           </section>
           {/*  */}
           <section className="ListOfArticles_Articles_Body">
+            {" "}
             <p className="Article_Body">{articleById.body} </p>
           </section>
           <section className="Article_Comments">

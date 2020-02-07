@@ -2,8 +2,8 @@
   text-align: left;
   display: grid;
   grid: repeat(6, fit-content(300px)) / repeat(4, 1fr);
-  border-color: grey;
-  border-style: dashed;
+  /* border-color: grey;
+  border-style: dashed; */
   grid-template-areas:
     "top top top top"
     "article article article article"
@@ -11,6 +11,8 @@
     "article article article article"
     "article article article article"
     "article article article article";
+  background-color: rgb(205, 211, 218);
+  color: #a24c3e;
 
   /* color: #e3a559;  border*/
   /* color: #a24c3e;  number */
@@ -28,8 +30,8 @@ ul {
   margin: 0px;
 }
 .App_Top_Container {
-  border-style: dashed;
-  border-color: red;
+  /* border-style: dashed;
+  border-color: red; */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 8fr 2fr;
@@ -37,29 +39,33 @@ ul {
 }
 
 .App_Top_Header {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 3vh;
+  justify-content: flex-start;
 }
 
 .App_Top_LoginButton_Container {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 .App_Top_Navbar {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
+  color: white;
 }
 
 .ListOfArticles_Container {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 30px auto;
@@ -68,23 +74,32 @@ ul {
     "left right";
 }
 
+.ListOfArticles_Right {
+  grid-area: right;
+  background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 211, 218));
+  border-style: groove;
+  border-color: black;
+  margin: 38px 10px 0 10px;
+}
+
 .ListOfArticles_SortBar {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   grid-area: top;
+  color: white;
 }
 
 .ListOfArticles_Articles {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   display: flex;
   flex-direction: row;
   grid-area: left;
 }
 
 .ListOfArticles_Cards {
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-areas: "left right";
@@ -92,21 +107,28 @@ ul {
   align-items: center;
   padding: 0px;
   margin: 1vh 0 1vh 0;
+  border-color: #aaaaaa;
+  border-style: double;
+  background-color: rgb(255, 255, 255);
   /* replace the align-items */
 }
 
 .ListofArticles_Cards_Info {
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   grid-area: right;
   display: grid;
+  align-self: stretch;
   grid-template-rows: auto auto auto;
   text-align: center;
+  color: #a24c3e;
+  border-color: #aaaaaa;
+  border-style: ridge;
 }
 
 .ListofArticles_Cards_Title {
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   grid-area: left;
   display: grid;
   grid-template-columns: auto auto;
@@ -119,39 +141,50 @@ ul {
 .ListofArticles_Cards_Title_Title {
   grid-area: top;
   text-align: left;
-  color: black;
+  color: #274863;
   font-size: 3vw;
 }
 
 .Article_Container {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 200px auto auto;
+  grid-template-rows: 200px minmax(40vh, auto) auto;
   grid-template-areas:
     "top right"
     "center right"
     "left right";
 }
 
+.Article_Right {
+  grid-area: right;
+  background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 211, 218));
+  border-style: groove;
+  border-color: rgb(255, 255, 255);
+  margin: 0px 10px 0 10px;
+}
+
 .ListOfArticles_Articles_Body {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   grid-area: center;
+  border-style: double;
+  border-color: #e3a559;
+  background-color: white;
 }
 
 .Article_Body {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
   margin: 1vh 5vw 1vh 5vw;
   /* padding: 1vh 4vh 1vh 4vh; */
 }
 
 .Article_Title {
   grid-area: top;
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -161,8 +194,8 @@ ul {
 }
 
 .Article_Title_Title {
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   grid-area: left;
   display: grid;
   grid-template-rows: auto 30px;
@@ -172,15 +205,17 @@ ul {
 }
 .Article_Title_Header {
   grid-area: top;
-  border-style: dashed;
-  border-color: black;
+  /* border-style: dashed;
+  border-color: black; */
   margin: 0px;
+  justify-content: center;
+  align-self: center;
 }
 
 .Article_Title_Author {
   grid-area: bottom;
-  border-style: dashed;
-  border-color: purple;
+  /* border-style: dashed;
+  border-color: purple; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -189,47 +224,51 @@ ul {
 
 .Article_Title_Likes {
   grid-area: topright;
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   margin: 0px;
   align-self: auto;
 }
 
 .Article_Title_Commentbutton {
   grid-area: right;
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   text-align: center;
   align-self: stretch;
 }
 
 .Article_Comments {
   grid-area: right;
-  border-style: dashed;
-  border-color: brown;
+  /* border-style: dashed;
+  border-color: brown; */
   grid-area: left;
 }
 
 .Button_Container {
-  border-style: dashed;
-  border-color: black;
+  /* border-style: dashed;
+  border-color: black; */
   display: block;
 }
 
 .Comments_Card {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
+  border-style: double;
+  border-color: #e3a559;
+  background-color: white;
+  margin: 2px;
 }
 .TopicsPage_Container {
-  border-style: dashed;
-  border-color: green;
+  /* border-style: dashed;
+  border-color: green; */
   display: grid;
   grid-template-rows: 60px auto;
 }
 
 .ListTopics {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
   display: flex;
   padding: 10vw;
   flex-direction: row;
@@ -238,20 +277,25 @@ ul {
 }
 
 .Indv_Topics {
-  padding: 10vw;
+  padding: 5vh;
+  margin: 10px;
+  border-style: double;
+  border-color: white;
+  border-width: 2vh;
+  font-size: 40px;
 }
 
 .putBorder {
-  border-style: dashed;
-  border-width: 1px;
-  border-color: grey;
+  /* border-style: dashed;
+  border-width: 1px; */
+  /* border-color: grey; */
 }
 
 main {
   display: grid;
   grid-area: article;
-  border-style: dashed;
-  border-color: red;
+  /* border-style: dashed;
+  border-color: red; */
 }
 
 .Border {

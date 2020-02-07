@@ -4,11 +4,14 @@ import DisplayTopics from "./DisplayTopics";
 const TopicsPage = () => {
   return (
     <div>
-      <header>
-        <h2>TopicPage</h2>
-      </header>
-
-      <DisplayTopics />
+      <section className="TopicsPage_Container">
+        <header className="putBorder">
+          <h2>TopicPage</h2>
+        </header>
+        <section className="putBorder">
+          <DisplayTopics />
+        </section>
+      </section>
     </div>
   );
 };

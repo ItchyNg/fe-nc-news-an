@@ -19,9 +19,9 @@ class DisplayTopics extends React.Component {
       return <p>Loading...</p>;
     }
     return (
-      <ul>
+      <ul className="ListTopics">
         {listOfTopics.map(topic => (
-          <ol key={topic.slug}>
+          <ol key={topic.slug} className="Indv_Topics">
             <Link to={`/topics/${topic.slug}`}>
               <button>{topic.slug}</button>
             </Link>

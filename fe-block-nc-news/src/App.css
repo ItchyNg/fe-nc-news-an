@@ -2,6 +2,8 @@
   text-align: left;
   display: grid;
   grid: repeat(6, fit-content(300px)) / repeat(4, 1fr);
+  border-color: grey;
+  border-style: dashed;
   grid-template-areas:
     "top top top top"
     "article article article article"
@@ -78,8 +80,6 @@ ul {
   display: flex;
   flex-direction: row;
   grid-area: left;
-  padding: 0px;
-  margin: 0px;
 }
 
 .ListOfArticles_Cards {
@@ -91,7 +91,7 @@ ul {
   margin: 5px 5px 5px 5px;
   align-items: center;
   padding: 0px;
-  margin: 0px;
+  margin: 1vh 0 1vh 0;
   /* replace the align-items */
 }
 
@@ -138,10 +138,16 @@ ul {
 .ListOfArticles_Articles_Body {
   border-style: dashed;
   border-color: green;
-  display: flex;
-  flex-direction: row;
   grid-area: center;
 }
+
+.Article_Body {
+  border-style: dashed;
+  border-color: blue;
+  margin: 1vh 5vw 1vh 5vw;
+  /* padding: 1vh 4vh 1vh 4vh; */
+}
+
 .Article_Title {
   grid-area: top;
   border-style: dashed;
@@ -214,12 +220,33 @@ ul {
   border-style: dashed;
   border-color: blue;
 }
+.TopicsPage_Container {
+  border-style: dashed;
+  border-color: green;
+  display: grid;
+  grid-template-rows: 60px auto;
+}
+
+.ListTopics {
+  border-style: dashed;
+  border-color: blue;
+  display: flex;
+  padding: 10vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Indv_Topics {
+  padding: 10vw;
+}
 
 .putBorder {
   border-style: dashed;
   border-width: 1px;
   border-color: grey;
 }
+
 main {
   display: grid;
   grid-area: article;

@@ -81,7 +81,7 @@ class DisplayArticlesById extends React.Component {
           </section>
           {/*  */}
           <section className="ListOfArticles_Articles_Body">
-            <p className="putBorder">{articleById.body} </p>
+            <p className="Article_Body">{articleById.body} </p>
           </section>
           <section className="Article_Comments">
             {this.state.viewToggler && (

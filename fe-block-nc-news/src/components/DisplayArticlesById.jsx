@@ -52,8 +52,17 @@ class DisplayArticlesById extends React.Component {
     return (
       <div>
         <section className="Article_Container">
+          {/*  */}
           <section className="Article_Title">
-            <h2 className="putBorder">{articleById.title}</h2>
+            <section className="Article_Title_Title">
+              <h2 className="Article_Title_Header">{articleById.title}</h2>
+
+              <p className="Article_Title_Author">
+                Author: {articleById.author} || Created at{" "}
+                {new Date(articleById.created_at).toLocaleString()}
+              </p>
+            </section>
+
             <p className="Article_Title_Likes">
               <AmendVotes
                 username={username}
@@ -61,10 +70,6 @@ class DisplayArticlesById extends React.Component {
                 location="articles"
                 comment_id={articleById.article_id}
               />
-            </p>
-            <p className="putBorder">
-              Author: {articleById.author} || Created at{" "}
-              {new Date(articleById.created_at).toLocaleString()}
             </p>
 
             <label
@@ -74,8 +79,8 @@ class DisplayArticlesById extends React.Component {
               <button>View {articleById.comment_count} Comments</button>
             </label>
           </section>
-
-          <section className="ListOfArticles_Articles">
+          {/*  */}
+          <section className="ListOfArticles_Articles_Body">
             <p className="putBorder">{articleById.body} </p>
           </section>
           <section className="Article_Comments">

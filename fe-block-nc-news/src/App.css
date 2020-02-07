@@ -9,6 +9,7 @@
     "article article article article"
     "article article article article"
     "article article article article";
+
   /* color: #e3a559;  border*/
   /* color: #a24c3e;  number */
   /* color: #818e5b;
@@ -77,6 +78,8 @@ ul {
   display: flex;
   flex-direction: row;
   grid-area: left;
+  padding: 0px;
+  margin: 0px;
 }
 
 .ListOfArticles_Cards {
@@ -87,7 +90,8 @@ ul {
   grid-template-areas: "left right";
   margin: 5px 5px 5px 5px;
   align-items: center;
-
+  padding: 0px;
+  margin: 0px;
   /* replace the align-items */
 }
 
@@ -124,28 +128,65 @@ ul {
   border-color: green;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 150px auto;
+  grid-template-rows: 200px auto auto;
   grid-template-areas:
     "top right"
+    "center right"
     "left right";
 }
 
+.ListOfArticles_Articles_Body {
+  border-style: dashed;
+  border-color: green;
+  display: flex;
+  flex-direction: row;
+  grid-area: center;
+}
 .Article_Title {
   grid-area: top;
   border-style: dashed;
   border-color: green;
   display: grid;
-  grid-template-columns: 7fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "top topright"
+    "left topright"
     "left right";
+}
+
+.Article_Title_Title {
+  border-style: dashed;
+  border-color: brown;
+  grid-area: left;
+  display: grid;
+  grid-template-rows: auto 30px;
+  grid-template-areas:
+    "top"
+    "bottom";
+}
+.Article_Title_Header {
+  grid-area: top;
+  border-style: dashed;
+  border-color: black;
+  margin: 0px;
+}
+
+.Article_Title_Author {
+  grid-area: bottom;
+  border-style: dashed;
+  border-color: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0px;
 }
 
 .Article_Title_Likes {
   grid-area: topright;
   border-style: dashed;
   border-color: brown;
+  margin: 0px;
+  align-self: auto;
 }
 
 .Article_Title_Commentbutton {
@@ -153,20 +194,25 @@ ul {
   border-style: dashed;
   border-color: brown;
   text-align: center;
+  align-self: stretch;
 }
 
 .Article_Comments {
   grid-area: right;
   border-style: dashed;
   border-color: brown;
+  grid-area: left;
 }
 
 .Button_Container {
   border-style: dashed;
   border-color: black;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: block;
+}
+
+.Comments_Card {
+  border-style: dashed;
+  border-color: blue;
 }
 
 .putBorder {

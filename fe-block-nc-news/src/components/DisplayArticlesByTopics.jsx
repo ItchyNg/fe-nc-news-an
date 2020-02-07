@@ -66,18 +66,23 @@ class DisplayArticlesByTopics extends React.Component {
       <div>
         <section className="ListOfArticles_Container">
           <section className="ListOfArticles_SortBar">
-            <label onClick={this.handleClick}>
-              Sort By:
+            {/*  */}
+            <select defaultValue="" name="sortBy" onClick={this.handleClick}>
+              <option disabled value="">
+                Sort By
+              </option>
+
               {sortByArray.map(sortByColumns => (
-                <button
+                <option
                   value={Object.values(sortByColumns)}
                   name="sortBy"
                   key={Object.values(sortByColumns)}
                 >
                   {Object.keys(sortByColumns)}
-                </button>
+                </option>
               ))}
-            </label>
+            </select>
+            {/*  */}
             <label onClick={this.handleClick}>
               Order:
               <button value="asc" name="orderBy">
@@ -87,6 +92,7 @@ class DisplayArticlesByTopics extends React.Component {
                 DESC
               </button>
             </label>
+            {/*  */}
           </section>
           <section className="ListOfArticles_Articles">
             <ul>

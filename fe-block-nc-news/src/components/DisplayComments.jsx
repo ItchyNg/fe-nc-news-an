@@ -106,9 +106,10 @@ class DisplayComments extends React.Component {
           </button>
         </label>
         {commentsByArticleId.map(comment => (
-          <section key={comment.comment_id}>
+          <section key={comment.comment_id} className="Comments_Card">
             <p>
-              Author: {comment.author} created:
+              {comment.author}
+              created:
               {new Date(comment.created_at).toLocaleString()}
             </p>
             <p>

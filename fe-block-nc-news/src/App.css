@@ -11,8 +11,8 @@
     "article article article article"
     "article article article article"
     "article article article article";
-  background-color: rgb(205, 211, 218);
-  color: #a24c3e;
+  background-color: rgb(0, 0, 51);
+  color: white;
 
   /* color: #e3a559;  border*/
   /* color: #a24c3e;  number */
@@ -73,7 +73,18 @@ ul {
     "top right"
     "left right";
 }
-
+@media (max-width: 500px) {
+  .ListOfArticles_Container {
+    /* border-style: dashed;
+  border-color: green; */
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 30px auto;
+    grid-template-areas:
+      "top top"
+      "left left";
+  }
+}
 .ListOfArticles_Right {
   grid-area: right;
   background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 211, 218));
@@ -101,15 +112,21 @@ ul {
   /* border-style: dashed;
   border-color: brown; */
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 6fr 2fr;
   grid-template-areas: "left right";
-  margin: 5px 5px 5px 5px;
   align-items: center;
   padding: 0px;
   margin: 1vh 0 1vh 0;
-  border-color: #aaaaaa;
+  border-color: rgb(205, 149, 12);
   border-style: double;
-  background-color: rgb(255, 255, 255);
+  border-width: 1vw;
+  border-radius: 25px;
+  background-color: rgb(224, 224, 224);
+  /* background-image: linear-gradient(
+    to left,
+    rgb(151, 151, 151),
+    rgb(17, 20, 62)
+  ); */
   /* replace the align-items */
 }
 
@@ -119,12 +136,66 @@ ul {
   grid-area: right;
   display: grid;
   align-self: stretch;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 0.1fr 0.1fr 100px;
   text-align: center;
-  color: #a24c3e;
-  border-color: #aaaaaa;
-  border-style: ridge;
+  font-size: 2vw;
+  background-color: rgb(238, 178, 27);
+  color: black;
+  border-radius: 0px 12px 12px 0px;
 }
+.ListofArticles_Cards_Info:hover {
+  box-shadow: rgb(205, 149, 12);
+  -webkit-box-shadow: -3px 0px 8px 2px;
+}
+
+.ListofArticles_Cards_Info time {
+  font-size: 2vh;
+  color: rgb(0, 0, 51);
+  text-align: center;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.ListofArticles_Cards_Info h1 {
+  font-size: 4vh;
+  color: rgb(0, 0, 51);
+  border-top: 10px double white;
+  border-bottom: 10px double white;
+}
+
+.ListofArticles_Cards_Info p {
+  display: inline-block;
+
+  padding: 0.4em 1.2em;
+  /* border: 0.7em double rgb(205, 149, 12); */
+  border-top: 10px double white;
+  border-bottom: 10px double white;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vh;
+  font-weight: 900;
+  color: rgb(0, 0, 51);
+  text-align: center;
+  align-self: center;
+  transition: all 0.2s;
+}
+.ListofArticles_Cards_Info p:hover {
+  columns: #000000;
+  background-color: #ffffff;
+  border-top: 10px double rgb(205, 149, 12);
+  border-bottom: 10px double rgb(205, 149, 12);
+}
+.ListofArticles_Cards_Info p:active {
+  background-color: rgb(0, 0, 51);
+}
+/* @media all and (max-width: 30em) {
+  .ListofArticles_Cards_Info_View {
+    display: block;
+    margin: 04em auto;
+  }
+} */
 
 .ListofArticles_Cards_Title {
   /* border-style: dashed;
@@ -141,8 +212,8 @@ ul {
 .ListofArticles_Cards_Title_Title {
   grid-area: top;
   text-align: left;
-  color: #274863;
-  font-size: 3vw;
+  color: black;
+  font-size: 3vh;
 }
 
 .Article_Container {

@@ -65,10 +65,8 @@ class DisplayArticlesByTopics extends React.Component {
     return (
       <div>
         <section className="ListOfArticles_Container">
-          {" "}
           <p className="ListOfArticles_Right"></p>
           <section className="ListOfArticles_SortBar">
-            {/*  */}
             <select defaultValue="" name="sortBy" onClick={this.handleClick}>
               <option disabled value="">
                 Sort By
@@ -81,7 +79,7 @@ class DisplayArticlesByTopics extends React.Component {
                 >
                   {Object.keys(sortByColumns)}
                 </option>
-              ))}{" "}
+              ))}
             </select>
 
             <label onClick={this.handleClick}>
@@ -95,29 +93,37 @@ class DisplayArticlesByTopics extends React.Component {
             </label>
             {/*  */}
           </section>
+
           <section className="ListOfArticles_Articles">
             <ul>
               {articlesByTopic.map(articles => (
                 <ol key={articles.title} className="ListOfArticles_Cards">
-                  <section className="ListofArticles_Cards_Info">
-                    <p className="putBorder">Votes: {articles.votes}</p>
+                  <Link to={`/articles/${articles.article_id}`}>
+                    <nav className="ListofArticles_Cards_Info">
+                      <time>
+                        Created:
+                        {new Date(articles.created_at).toLocaleString()}
+                      </time>
+
+                      <h1 className="ListofArticles_Cards_Info_Like">
+                        <i className="far fa-thumbs-up"></i>
+                        {articles.votes}
+                      </h1>
+
+                      <p>VIEW</p>
+                    </nav>
+                  </Link>
+
+                  <section className="ListofArticles_Cards_Title">
+                    <h3 className="ListofArticles_Cards_Title_Title">
+                      {articles.title}
+                    </h3>
                     <p className="putBorder">Written by: {articles.author}</p>
+
                     <p className="putBorder">
-                      Created:{new Date(articles.created_at).toLocaleString()}
+                      Comments:{articles.comment_count}
                     </p>
                   </section>
-                  <Link to={`/articles/${articles.article_id}`}>
-                    <section className="ListofArticles_Cards_Title">
-                      <h3 className="ListofArticles_Cards_Title_Title">
-                        {articles.title}
-                      </h3>
-                      <p className="putBorder">View {articles.topic}</p>
-
-                      <p className="putBorder">
-                        Comments:{articles.comment_count}
-                      </p>
-                    </section>
-                  </Link>
                 </ol>
               ))}
             </ul>

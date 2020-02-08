@@ -21,11 +21,13 @@ class DisplayTopics extends React.Component {
     return (
       <ul className="ListTopics">
         {listOfTopics.map(topic => (
-          <Link to={`/topics/${topic.slug}`}>
-            <ol key={topic.slug} className="Indv_Topics">
-              <p>{topic.slug}</p>
-            </ol>{" "}
-          </Link>
+          <section key={topic.slug}>
+            <Link to={`/topics/${topic.slug}`}>
+              <ol className="Indv_Topics">
+                <p>{topic.slug.toUpperCase()}</p>
+              </ol>{" "}
+            </Link>
+          </section>
         ))}
       </ul>
     );

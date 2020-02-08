@@ -58,22 +58,27 @@ class AmendVote extends React.Component {
     const { voteChange, upVote, downVote } = this.state;
     if (username) {
       return (
-        <section className="Button_Container">
-          <p>Likes: {voteNumber + voteChange}</p>
-          <button
-            onClick={() => this.handleClick(1, "upVote", "downVote")}
-            disabled={upVote}
-          >
-            <i class="far fa-thumbs-up" style={{ fontSize: "10px" }}></i>
-          </button>
+        <div>
+          <section className="Button_Container">
+            <p>Likes: {voteNumber + voteChange}</p>
+            <button
+              onClick={() => this.handleClick(1, "upVote", "downVote")}
+              disabled={upVote}
+            >
+              <i className="far fa-thumbs-up" style={{ fontSize: "10px" }}></i>
+            </button>
 
-          <button
-            onClick={() => this.handleClick(-1, "downVote", "upVote")}
-            disabled={downVote}
-          >
-            <i class="fa fa-thumbs-o-down" style={{ fontSize: "10px" }}></i>
-          </button>
-        </section>
+            <button
+              onClick={() => this.handleClick(-1, "downVote", "upVote")}
+              disabled={downVote}
+            >
+              <i
+                className="fa fa-thumbs-o-down"
+                style={{ fontSize: "10px" }}
+              ></i>
+            </button>
+          </section>
+        </div>
       );
     }
     return <p>Likes: {voteNumber + voteChange}</p>;

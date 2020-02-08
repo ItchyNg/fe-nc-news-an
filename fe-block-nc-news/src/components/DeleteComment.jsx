@@ -11,7 +11,7 @@ const DeleteComment = props => {
     >
       <button>
         <i
-          class="far fa-times-circle"
+          className="far fa-times-circle"
           style={{ fontSize: "20px", color: "red" }}
         ></i>
       </button>

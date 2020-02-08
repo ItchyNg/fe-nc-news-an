@@ -64,14 +64,14 @@ class DisplayArticlesById extends React.Component {
               </p>
             </section>
 
-            <p className="Article_Title_Likes">
+            <section className="Article_Title_Likes">
               <AmendVotes
                 username={username}
                 voteNumber={articleById.votes}
                 location="articles"
                 comment_id={articleById.article_id}
               />
-            </p>
+            </section>
 
             <label
               onClick={this.handleToggle}

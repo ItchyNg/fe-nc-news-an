@@ -10,11 +10,6 @@
     "article";
   background-color: rgb(0, 0, 51);
   color: white;
-
-  /* color: #e3a559;  border*/
-  /* color: #a24c3e;  number */
-  /* color: #818e5b;
-  background-color: #151515; */
 }
 
 ol {
@@ -121,10 +116,13 @@ ul {
       "top top"
       "left left";
   }
+  .ListOfArticles_Right {
+    display: none;
+  }
 }
 .ListOfArticles_Right {
   grid-area: right;
-  background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 211, 218));
+  background-image: linear-gradient(rgb(0, 0, 51), rgb(252, 189, 30));
   border-style: groove;
   border-color: black;
   margin: 38px 10px 0 10px;
@@ -455,7 +453,8 @@ ul {
   border-width: 1px; */
 /* border-color: grey; */
 /* } */
-*/ main {
+
+main {
   display: grid;
   grid-area: article;
   /* border-style: dashed;

@@ -1,7 +1,9 @@
 import React from "react";
 
 const Header = () => {
-  return <h1>The NorthCoders News</h1>;
+  return (
+    <img src="Untitled.png" alt="The NorthCoders News Logo" width="300px"></img>
+  );
 };
 
 export default Header;

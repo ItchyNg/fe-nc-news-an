@@ -6,7 +6,7 @@ const Homepage = () => {
   return (
     <div>
       <header>
-        <h2>HomePage</h2>
+        <h2>The Best News Website!</h2>
       </header>
       <DisplayArticlesByTopics />
     </div>

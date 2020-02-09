@@ -65,7 +65,7 @@ class DisplayArticlesByTopics extends React.Component {
     return (
       <div>
         <section className="ListOfArticles_Container">
-          <p className="ListOfArticles_Right"></p>
+          <section className="ListOfArticles_Right"></section>
           <section className="ListOfArticles_SortBar">
             <select defaultValue="" name="sortBy" onClick={this.handleClick}>
               <option disabled value="">
@@ -97,31 +97,30 @@ class DisplayArticlesByTopics extends React.Component {
           <section className="ListOfArticles_Articles">
             <ul>
               {articlesByTopic.map(articles => (
-                <ol key={articles.title} className="ListOfArticles_Cards">
+                <ol key={articles.title}>
                   <Link to={`/articles/${articles.article_id}`}>
                     <nav className="ListofArticles_Cards_Info">
                       <time>
                         Created:
                         {new Date(articles.created_at).toLocaleString()}
                       </time>
-
-                      <h1 className="ListofArticles_Cards_Info_Like">
+                      <h2>
                         <i className="far fa-thumbs-up"></i>
                         {articles.votes}
-                      </h1>
-
+                      </h2>
                       <p>VIEW</p>
                     </nav>
                   </Link>
 
                   <section className="ListofArticles_Cards_Title">
-                    <h3 className="ListofArticles_Cards_Title_Title">
-                      {articles.title}
-                    </h3>
-                    <p className="putBorder">Written by: {articles.author}</p>
+                    <h1>{articles.title}</h1>
+                    <h2 className="putBorder">
+                      <b>Author:</b> {articles.author}
+                    </h2>
 
-                    <p className="putBorder">
-                      Comments:{articles.comment_count}
+                    <p>
+                      {articles.comment_count}
+                      <i className="far fa-comment-alt"></i>
                     </p>
                   </section>
                 </ol>

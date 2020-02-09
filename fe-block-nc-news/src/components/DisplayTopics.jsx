@@ -22,7 +22,10 @@ class DisplayTopics extends React.Component {
       <ul className="ListTopics">
         {listOfTopics.map(topic => (
           <section key={topic.slug}>
-            <Link to={`/topics/${topic.slug}`}>
+            <Link
+              to={`/topics/${topic.slug}`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
               <ol className="Indv_Topics">
                 <p>{topic.slug.toUpperCase()}</p>
               </ol>{" "}

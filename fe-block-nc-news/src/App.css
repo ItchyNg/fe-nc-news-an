@@ -1,16 +1,13 @@
 .App {
   text-align: left;
   display: grid;
-  grid: repeat(6, fit-content(300px)) / repeat(4, 1fr);
+
   /* border-color: grey;
   border-style: dashed; */
+  grid-template-rows: 250px auto;
   grid-template-areas:
-    "top top top top"
-    "article article article article"
-    "article article article article"
-    "article article article article"
-    "article article article article"
-    "article article article article";
+    "top"
+    "article";
   background-color: rgb(0, 0, 51);
   color: white;
 
@@ -34,11 +31,14 @@ ul {
   border-color: red; */
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 8fr 2fr;
+  grid-template-rows: 4fr 1fr;
   grid-area: top;
+  grid-template-areas:
+    "top right"
+    "left right";
 }
 
-.App_Top_Header {
+.App_Top_Container header {
   /* border-style: dashed;
   border-color: blue; */
   display: flex;
@@ -47,20 +47,60 @@ ul {
   color: white;
   font-size: 3vh;
   justify-content: flex-start;
+  grid-area: top;
+  position: absolute;
 }
 
 .App_Top_LoginButton_Container {
-  /* border-style: dashed;
-  border-color: blue; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border-style: dashed;
+  border-color: blue;
   text-align: center;
+  grid-area: right;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  grid-template-areas:
+    "top"
+    "bottom";
 }
-.App_Top_Navbar {
+
+.App_Top_LoginButton_Container section {
+  border-style: dashed;
+  border-color: red;
+  grid-area: top;
+}
+/* @media (max-width: 500px) {
+  .App_Top_LoginButton_Container section {
+    grid-area: bottom;
+  }
+} */
+.bottomm {
+  border-style: dashed;
+  border-color: green;
+}
+.App_Top_Container nav {
   /* border-style: dashed;
   border-color: blue; */
-  color: white;
+  border-top-style: groove;
+  border-right-style: groove;
+  border-bottom-style: groove;
+  border-color: white;
+  background-color: rgb(238, 178, 27);
+  border-radius: 0 25px 25px 0;
+  grid-area: left;
+  text-align: left;
+}
+
+.App_Top_Container nav ol {
+  /* border-style: dashed;
+  border-color: blue; */
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border-style: outset;
+}
+
+.App_Top_Container nav ol:hover {
+  opacity: 0.5;
 }
 
 .ListOfArticles_Container {
@@ -108,7 +148,7 @@ ul {
   grid-area: left;
 }
 
-.ListOfArticles_Cards {
+.ListOfArticles_Articles ol {
   /* border-style: dashed;
   border-color: brown; */
   display: grid;
@@ -121,7 +161,8 @@ ul {
   border-style: double;
   border-width: 1vw;
   border-radius: 25px;
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 51);
   /* background-image: linear-gradient(
     to left,
     rgb(151, 151, 151),
@@ -136,7 +177,7 @@ ul {
   grid-area: right;
   display: grid;
   align-self: stretch;
-  grid-template-rows: 0.1fr 0.1fr 100px;
+  grid-template-rows: 1fr 1fr 1fr;
   text-align: center;
   font-size: 2vw;
   background-color: rgb(238, 178, 27);
@@ -156,7 +197,7 @@ ul {
   margin-top: 10px;
 }
 
-.ListofArticles_Cards_Info h1 {
+.ListofArticles_Cards_Info h2 {
   font-size: 4vh;
   color: rgb(0, 0, 51);
   border-top: 10px double white;
@@ -190,30 +231,48 @@ ul {
 .ListofArticles_Cards_Info p:active {
   background-color: rgb(0, 0, 51);
 }
-/* @media all and (max-width: 30em) {
-  .ListofArticles_Cards_Info_View {
-    display: block;
-    margin: 04em auto;
-  }
-} */
 
 .ListofArticles_Cards_Title {
   /* border-style: dashed;
   border-color: brown; */
   grid-area: left;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas:
     "top top"
     "left right";
+  align-self: stretch;
 }
 
-.ListofArticles_Cards_Title_Title {
+.ListofArticles_Cards_Title h1 {
+  /* border-style: dashed;
+  border-color: green; */
   grid-area: top;
   text-align: left;
-  color: black;
   font-size: 3vh;
+}
+.ListofArticles_Cards_Title h2 {
+  /* border-style: dashed;
+  border-color: green; */
+  grid-area: left;
+  text-align: left;
+  align-self: flex-end;
+  font-size: 2vh;
+  border-top-style: groove;
+  border-right-style: groove;
+  border-bottom-style: groove;
+  border-color: white;
+  background-color: rgb(238, 178, 27);
+  border-radius: 0 25px 25px 0;
+}
+
+.ListofArticles_Cards_Title p {
+  /* border-style: dashed;
+  border-color: green; */
+  grid-area: right;
+  text-align: center;
+  align-self: flex-end;
+  font-size: 25px;
 }
 
 .Article_Container {
@@ -234,6 +293,16 @@ ul {
   border-style: groove;
   border-color: rgb(255, 255, 255);
   margin: 0px 10px 0 10px;
+}
+@media (max-width: 500px) {
+  .Article_Container {
+    /* border-style: dashed;
+  border-color: green; */
+    grid-template-areas:
+      "top top"
+      "center center"
+      "left left";
+  }
 }
 
 .ListOfArticles_Articles_Body {
@@ -341,18 +410,21 @@ ul {
   /* border-style: dashed;
   border-color: blue; */
   display: flex;
-  padding: 10vw;
+  padding: 3vw;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .Indv_Topics {
-  padding: 5vh;
+  display: inline-block;
+  text-align: center;
+  padding: 1vh;
   margin: 10px;
   border-style: double;
-  border-color: white;
-  border-width: 2vh;
+  border-color: rgb(205, 149, 12);
+  min-width: 180px;
+  border-width: 1vh;
   font-size: 40px;
 }
 

@@ -9,6 +9,7 @@ import DisplayArticlesByTopics from "./components/DisplayArticlesByTopics";
 import DisplayArticlesById from "./components/DisplayArticlesById";
 import ErrorPage from "./ErrorPage";
 import LoginPage from "./components/LoginPage";
+import { Link } from "@reach/router";
 
 class App extends React.Component {
   state = {
@@ -31,33 +32,38 @@ class App extends React.Component {
     return (
       <div className="App">
         <section className="App_Top_Container">
-          <section className="App_Top_Header ">
-            <Header />
-          </section>
+          <Link to="/">
+            <header>
+              <Header />
+            </header>
+          </Link>
 
           <section className="App_Top_LoginButton_Container">
-            {!username && (
-              <div>
-                <button onClick={this.handleClick}>Log In Here</button>
-                {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
-              </div>
-            )}
-            {username && (
-              <p>
-                Welcome Back {username}!
-                <button
-                  onClick={() => {
-                    return this.loggedUser("") & this.handleClick();
-                  }}
-                >
-                  LOGOUT
-                </button>
-              </p>
-            )}
+            {/* <p className="bottomm"></p> */}
+            <section>
+              {!username && (
+                <div>
+                  <button onClick={this.handleClick}>Log In Here</button>
+                  {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
+                </div>
+              )}
+              {username && (
+                <p>
+                  Welcome Back {username}!
+                  <button
+                    onClick={() => {
+                      return this.loggedUser("") & this.handleClick();
+                    }}
+                  >
+                    LOGOUT
+                  </button>
+                </p>
+              )}
+            </section>
           </section>
-          <section className="App_Top_Navbar">
+          <nav>
             <Navbar />
-          </section>
+          </nav>
         </section>
 
         <main>

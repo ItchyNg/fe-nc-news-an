@@ -85,6 +85,7 @@ class DisplayComments extends React.Component {
         </label>
         {this.state.viewToggler && (
           <AddComment
+            scrollToTop={this.props.scrollToTop}
             username={username}
             article_id={this.props.article_id}
             addCommentToArray={this.addCommentToArray}

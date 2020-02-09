@@ -40,6 +40,13 @@ class DisplayArticlesById extends React.Component {
     });
   };
 
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
   render() {
     const { articleById, isLoading, err } = this.state;
     const { username } = this.props;
@@ -52,19 +59,14 @@ class DisplayArticlesById extends React.Component {
     return (
       <div>
         <section className="Article_Container">
-          {" "}
           <p className="Article_Right"></p>
           <section className="Article_Title">
-            <section className="Article_Title_Title">
-              <h2 className="Article_Title_Header">{articleById.title}</h2>
-
-              <p className="Article_Title_Author">
-                Author: {articleById.author} || Created at{" "}
-                {new Date(articleById.created_at).toLocaleString()}
-              </p>
-            </section>
-
-            <section className="Article_Title_Likes">
+            <h2>{articleById.title}</h2>
+            <p>
+              {articleById.author} ||{" "}
+              {new Date(articleById.created_at).toLocaleString()}
+            </p>
+            <section>
               <AmendVotes
                 username={username}
                 voteNumber={articleById.votes}
@@ -72,27 +74,22 @@ class DisplayArticlesById extends React.Component {
                 comment_id={articleById.article_id}
               />
             </section>
-
-            <label
-              onClick={this.handleToggle}
-              className="Article_Title_Commentbutton"
-            >
-              <button>View {articleById.comment_count} Comments</button>
+            <label onClick={this.handleToggle}>
+              {articleById.comment_count} <i className="far fa-comment-alt"></i>
             </label>
           </section>
-          {/*  */}
-          <section className="ListOfArticles_Articles_Body">
-            {" "}
-            <p className="Article_Body">{articleById.body} </p>
+          <section className="Article_Body">
+            <p>{articleById.body} </p>
           </section>
           <section className="Article_Comments">
             {this.state.viewToggler && (
               <DisplayComments
                 username={username}
                 article_id={articleById.article_id}
+                scrollToTop={this.scrollToTop}
               />
             )}
-          </section>
+          </section>{" "}
         </section>
       </div>
     );

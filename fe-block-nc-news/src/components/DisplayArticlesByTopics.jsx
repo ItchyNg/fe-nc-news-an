@@ -114,7 +114,7 @@ class DisplayArticlesByTopics extends React.Component {
 
                   <section className="ListofArticles_Cards_Title">
                     <h1>{articles.title}</h1>
-                    <h2 className="putBorder">
+                    <h2>
                       <b>Author:</b> {articles.author}
                     </h2>
 

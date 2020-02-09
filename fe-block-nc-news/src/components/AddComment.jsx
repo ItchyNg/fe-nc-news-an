@@ -37,7 +37,12 @@ class AddComment extends React.Component {
       return <p>{msg}</p>;
     }
     if (!username) {
-      return <p>Please Log in!</p>;
+      return (
+        <div>
+          <p>Please Log in!</p>
+          {this.props.scrollToTop()}
+        </div>
+      );
     }
     return (
       <form onSubmit={this.handleSubmit}>
@@ -45,7 +50,7 @@ class AddComment extends React.Component {
           {username}:
           <input
             required
-            type="text"
+            type="textarea"
             value={body}
             onChange={event => this.handleChange(event.target.value, "body")}
           />

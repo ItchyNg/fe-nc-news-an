@@ -305,20 +305,24 @@ ul {
   }
 }
 
-.ListOfArticles_Articles_Body {
+.Article_Body {
   /* border-style: dashed;
   border-color: green; */
+
   grid-area: center;
   border-style: double;
   border-color: #e3a559;
   background-color: white;
+  color: rgb(0, 0, 51);
+  border-width: 1vw;
+  border-radius: 25px;
 }
 
-.Article_Body {
+.Article_Body p {
   /* border-style: dashed;
   border-color: blue; */
   margin: 1vh 5vw 1vh 5vw;
-  /* padding: 1vh 4vh 1vh 4vh; */
+  padding: 1vh 4vh 1vh 4vh;
 }
 
 .Article_Title {
@@ -327,33 +331,27 @@ ul {
   border-color: green; */
   display: grid;
   grid-template-columns: 5fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 3fr 1fr;
   grid-template-areas:
-    "left topright"
+    "topleft topright"
     "left right";
+  align-self: center;
+  align-items: center;
 }
 
-.Article_Title_Title {
+.Article_Title h2 {
   /* border-style: dashed;
   border-color: brown; */
-  grid-area: left;
-  display: grid;
-  grid-template-rows: auto 30px;
-  grid-template-areas:
-    "top"
-    "bottom";
-}
-.Article_Title_Header {
-  grid-area: top;
-  /* border-style: dashed;
-  border-color: black; */
-  margin: 0px;
-  justify-content: center;
-  align-self: center;
+  grid-area: topleft;
+  display: flex;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  text-decoration-color: rgb(238, 178, 27);
+  text-align: left;
 }
 
-.Article_Title_Author {
-  grid-area: bottom;
+.Article_Title p {
+  grid-area: left;
   /* border-style: dashed;
   border-color: purple; */
   display: flex;
@@ -362,20 +360,27 @@ ul {
   margin: 0px;
 }
 
-.Article_Title_Likes {
+.Article_Title section {
   grid-area: topright;
   /* border-style: dashed;
   border-color: brown; */
+  font-size: 15px;
   margin: 0px;
   align-self: auto;
 }
 
-.Article_Title_Commentbutton {
+.Article_Title label {
   grid-area: right;
   /* border-style: dashed;
   border-color: brown; */
-  text-align: center;
   align-self: stretch;
+  font-size: 25px;
+  color: rgb(238, 178, 27);
+}
+
+.Article_Title label:hover {
+  font-size: 25px;
+  color: white;
 }
 
 .Article_Comments {
@@ -398,6 +403,21 @@ ul {
   border-color: #e3a559;
   background-color: white;
   margin: 2px;
+  color: rgb(0, 0, 51);
+  border-width: 1vw;
+  border-radius: 25px;
+  word-break: break-all;
+}
+
+.resizedTextbox {
+  width: 70%;
+  height: 50px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  resize: none;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .TopicsPage_Container {
   /* border-style: dashed;
@@ -426,6 +446,11 @@ ul {
   min-width: 180px;
   border-width: 1vh;
   font-size: 40px;
+}
+
+.Indv_Topics:hover {
+  border-color: white;
+  color: rgb(205, 149, 12);
 }
 
 .putBorder {

@@ -4,17 +4,13 @@ import { Link } from "@reach/router";
 export const Navbar = () => {
   return (
     <ul>
-      <ol>
-        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-          Home
-        </Link>
-      </ol>
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <ol> Home </ol>
+      </Link>
 
-      <ol>
-        <Link to="/topics" style={{ textDecoration: "none", color: "white" }}>
-          Topics
-        </Link>
-      </ol>
+      <Link to="/topics" style={{ textDecoration: "none", color: "white" }}>
+        <ol> Topics </ol>
+      </Link>
     </ul>
   );
 };

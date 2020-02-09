@@ -66,11 +66,17 @@ export const deleteComment = comment_id => {
 
 export const patchVote = (location, id, input) => {
   //comments or articles for location
-  console.log(location, id, input);
   return axios
     .patch(`http://itch-nc-news-app.herokuapp.com/api/${location}/${id}`, input)
     .then(({ data }) => {
-      console.log(data, "<<<< data");
       return data;
+    });
+};
+
+export const getUser = username => {
+  return axios
+    .get(`http://itch-nc-news-app.herokuapp.com/api/users/${username}`)
+    .then(({ data }) => {
+      return data.user;
     });
 };

@@ -4,7 +4,7 @@
 
   /* border-color: grey;
   border-style: dashed; */
-  grid-template-rows: 250px auto;
+  grid-template-rows: 300px auto;
   grid-template-areas:
     "top"
     "article";
@@ -52,31 +52,28 @@ ul {
 }
 
 .App_Top_LoginButton_Container {
-  border-style: dashed;
-  border-color: blue;
+  /* border-style: dashed;
+  border-color: blue; */
   text-align: center;
   grid-area: right;
-  display: grid;
-  grid-template-rows: 4fr 1fr;
-  grid-template-areas:
-    "top"
-    "bottom";
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
 }
 
 .App_Top_LoginButton_Container section {
-  border-style: dashed;
-  border-color: red;
+  /* border-style: dashed;
+  border-color: red; */
   grid-area: top;
+  position: relative;
 }
-/* @media (max-width: 500px) {
-  .App_Top_LoginButton_Container section {
-    grid-area: bottom;
-  }
-} */
-.bottomm {
-  border-style: dashed;
-  border-color: green;
+.App_Top_LoginButton_Container section img {
+  height: 50px;
+  width: 50px;
+  justify-self: center;
 }
+
 .App_Top_Container nav {
   /* border-style: dashed;
   border-color: blue; */
@@ -453,13 +450,12 @@ ul {
   color: rgb(205, 149, 12);
 }
 
-.putBorder {
+/* .putBorder {
   /* border-style: dashed;
   border-width: 1px; */
-  /* border-color: grey; */
-}
-
-main {
+/* border-color: grey; */
+/* } */
+*/ main {
   display: grid;
   grid-area: article;
   /* border-style: dashed;

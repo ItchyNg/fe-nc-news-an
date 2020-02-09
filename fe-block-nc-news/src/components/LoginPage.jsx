@@ -1,31 +1,52 @@
 import React from "react";
+import * as api from "../api";
+import ErrorPage from "../ErrorPage";
 
 class Login extends React.Component {
   state = {
-    username: "",
     arrayOfUsers: [
       "tickle122",
       "grumpy19",
       "happyamy2016",
       "cooljmessy",
       "weegembump",
-      "jessjelly"
-    ]
+      "jessjelly",
+      "NOTAUSERNAME"
+    ],
+    err: null
   };
 
-  handleClick = event => {
+  handleChange = event => {
     event.preventDefault();
-    this.setState({ username: event.target.value }, () => {
-      this.props.loggedUser(this.state.username);
-    });
+
+    api
+      .getUser(event.target.value)
+      .then(user => this.props.loggedUser(user))
+      .catch(err => {
+        this.setState({
+          err: {
+            response: {
+              status: err.response.status,
+              statusText: "User Not Found"
+            }
+          }
+        });
+      });
+
+    // this.setState({ username: event.target.value }, () => {
+    //   this.props.loggedUser(this.state.username);
+    // });
   };
 
   render() {
-    const { arrayOfUsers } = this.state;
+    const { arrayOfUsers, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    }
     return (
       <div>
         Choose user to login as:
-        <select defaultValue="" onClick={this.handleClick}>
+        <select defaultValue="" onChange={this.handleChange}>
           <option disabled value="">
             username
           </option>
@@ -38,24 +59,6 @@ class Login extends React.Component {
       </div>
     );
   }
-  // if (!viewLoginPage) {
-  //     return (
-
-  //     );
-  //   }
-
-  //   const { username, arrayOfUsers } = this.state;
-  //   return (
-  //     <div>
-  //       You are logged in as:
-  //       <select>
-  //         <option>tickle122</option>
-  //         <option>grumpy19</option>
-  //         <option>3</option>
-  //       </select>
-  //     </div>
-  //   );
-  // }
 }
 
 export default Login;

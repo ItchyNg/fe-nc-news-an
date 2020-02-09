@@ -13,12 +13,12 @@ import { Link } from "@reach/router";
 
 class App extends React.Component {
   state = {
-    username: "",
+    user: "",
     viewLoginPage: false
   };
 
   loggedUser = user => {
-    this.setState({ username: user });
+    this.setState({ user: user });
   };
 
   handleClick = () => {
@@ -28,7 +28,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { username, viewLoginPage } = this.state;
+    const { user, viewLoginPage } = this.state;
     return (
       <div className="App">
         <section className="App_Top_Container">
@@ -37,26 +37,25 @@ class App extends React.Component {
               <Header />
             </header>
           </Link>
-
           <section className="App_Top_LoginButton_Container">
-            {/* <p className="bottomm"></p> */}
             <section>
-              {!username && (
+              {!user && (
                 <div>
                   <button onClick={this.handleClick}>Log In Here</button>
                   {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
                 </div>
               )}
-              {username && (
+              {user && (
                 <p>
-                  Welcome Back {username}!
+                  Welcome Back {user.username}!
                   <button
                     onClick={() => {
                       return this.loggedUser("") & this.handleClick();
                     }}
                   >
                     LOGOUT
-                  </button>
+                  </button>{" "}
+                  <img src={user.avatar_url} alt="avatar"></img>
                 </p>
               )}
             </section>
@@ -72,7 +71,7 @@ class App extends React.Component {
             <TopicsPage path="/topics" />
             <DisplayArticlesByTopics path="topics/:topic" />
             <DisplayArticlesById
-              username={username}
+              username={user.username}
               path="articles/:article_id"
             />
             <ErrorPage default />

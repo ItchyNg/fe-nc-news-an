@@ -115,7 +115,10 @@ class DisplayArticlesById extends React.Component {
             </label>
           </section>
           <section className="Article_Body">
-            <p>{articleById.body} </p>
+            <p>
+              <span style={{ fontSize: "40px" }}>{articleById.body[0]} </span>
+              {articleById.body.slice(1)}
+            </p>
           </section>
           <section className="Article_Comments">
             {this.state.viewToggler && (

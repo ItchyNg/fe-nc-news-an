@@ -10,9 +10,9 @@ class DisplayArticlesByTopics extends React.Component {
     orderBy: "",
     topics: this.props.topics || "",
     sortByArray: [
-      { date: "created_at" },
-      { comments: "comment_count" },
-      { votes: "votes" }
+      { Date: "created_at" },
+      { Votes: "votes" },
+      { Comments: "comment_count" }
     ],
     isLoading: true,
     err: null
@@ -49,6 +49,7 @@ class DisplayArticlesByTopics extends React.Component {
 
   handleClick = event => {
     event.preventDefault();
+
     const keyToUpdate = event.target.name;
     const inputValue = event.target.value;
     this.setState({ [keyToUpdate]: inputValue });
@@ -117,16 +118,21 @@ class DisplayArticlesByTopics extends React.Component {
                   {Object.keys(sortByColumns)}
                 </option>
               ))}
-            </select>
-
+            </select>{" "}
             <label onClick={this.handleClick}>
-              Order:
-              <button value="asc" name="orderBy">
-                ASC
-              </button>
-              <button value="desc" name="orderBy">
-                DESC
-              </button>
+              {" "}
+              <button
+                value="desc"
+                name="orderBy"
+                className="fa fa-angle-double-up"
+                style={{ fontSize: "15px" }}
+              ></button>{" "}
+              <button
+                value="asc"
+                name="orderBy"
+                className="fa fa-angle-double-down"
+                style={{ fontSize: "15px" }}
+              ></button>
             </label>
           </section>
 

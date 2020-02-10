@@ -111,7 +111,7 @@ class DisplayArticlesById extends React.Component {
               />
             </section>
             <label onClick={this.handleToggle}>
-              {articleById.comment_count} <i className="far fa-comment-alt"></i>
+              <i className="far fa-comment-alt"> {articleById.comment_count}</i>
             </label>
           </section>
           <section className="Article_Body">

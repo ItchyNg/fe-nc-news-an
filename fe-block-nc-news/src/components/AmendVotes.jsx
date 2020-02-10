@@ -58,7 +58,15 @@ class AmendVote extends React.Component {
       return (
         <div>
           <section className="Button_Container">
-            <p>Likes: {voteNumber + voteChange}</p>
+            <p>
+              <i
+                className="fas fa-heart"
+                style={{ fontSize: "25px", color: " #ce6458" }}
+              >
+                {" "}
+                {voteNumber + voteChange}
+              </i>
+            </p>
             <button
               onClick={() => this.handleClick(1, "upVote", "downVote")}
               disabled={upVote}
@@ -79,7 +87,17 @@ class AmendVote extends React.Component {
         </div>
       );
     }
-    return <p>Likes: {voteNumber + voteChange}</p>;
+    return (
+      <p>
+        <i
+          className="fas fa-heart"
+          style={{ fontSize: "25px", color: " #ce6458" }}
+        >
+          {" "}
+          {voteNumber + voteChange}
+        </i>
+      </p>
+    );
   }
 }
 

@@ -407,6 +407,18 @@ ul {
   word-break: break-all;
 }
 
+.Comments_Card time {
+  font-size: 15px;
+  color: rgb(151, 151, 151);
+}
+
+.Comments_Card h3 {
+  margin-left: 5px;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  text-decoration-color: rgb(238, 178, 27);
+}
+
 .resizedTextbox {
   width: 70%;
   height: 50px;

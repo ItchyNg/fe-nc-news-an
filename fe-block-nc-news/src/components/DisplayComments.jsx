@@ -108,11 +108,12 @@ class DisplayComments extends React.Component {
         </label>
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id} className="Comments_Card">
-            <p>
-              {comment.author}
-              created:
-              {new Date(comment.created_at).toLocaleString()}
-            </p>
+            <h3 >
+              {comment.author === username ? "You" : comment.author} ||{" "}
+              <time>
+                Posted: {new Date(comment.created_at).toLocaleString()}
+              </time>
+            </h3>
             <p>
               Body: {comment.body}
               {comment.author === username ? (
@@ -124,7 +125,6 @@ class DisplayComments extends React.Component {
                 />
               ) : null}
             </p>
-
             <AmendVotes
               username={username}
               voteNumber={comment.votes}

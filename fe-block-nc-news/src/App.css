@@ -105,7 +105,7 @@ ul {
     "top right"
     "left right";
 }
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .ListOfArticles_Container {
     /* border-style: dashed;
   border-color: green; */
@@ -284,12 +284,12 @@ ul {
 
 .Article_Right {
   grid-area: right;
-  background-image: linear-gradient(rgb(223, 222, 222), rgb(205, 211, 218));
+  background-image: linear-gradient(rgb(0, 0, 51), rgb(252, 189, 30));
   border-style: groove;
-  border-color: rgb(255, 255, 255);
+  border-color: black;
   margin: 0px 10px 0 10px;
 }
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .Article_Container {
     /* border-style: dashed;
   border-color: green; */
@@ -297,6 +297,9 @@ ul {
       "top top"
       "center center"
       "left left";
+  }
+  .Article_Right {
+    display: none;
   }
 }
 

@@ -18,8 +18,8 @@ $darkred: #a75248;
 }
 
 .rocket {
-  margin-top: px;
-  margin-left: 50px;
+  margin-top: 20px;
+  margin-left: 30px;
   position: sticky;
   top: 20%;
   width: 80px;
@@ -151,7 +151,7 @@ $darkred: #a75248;
     &:nth-child(9) {
       width: 90px;
       height: 90px;
-      left: 200px;
+      left: -50px;
       top: 380px;
       animation: fumes 20s infinite;
     }

@@ -8,28 +8,21 @@ import TopicsPage from "./components/TopicsPage";
 import DisplayArticlesByTopics from "./components/DisplayArticlesByTopics";
 import DisplayArticlesById from "./components/DisplayArticlesById";
 import ErrorPage from "./ErrorPage";
-import LoginPage from "./components/LoginPage";
+import LoginButton from "./components/LoginButton";
 import { Link } from "@reach/router";
 import "../src/testtt.scss";
 
 class App extends React.Component {
   state = {
-    user: "",
-    viewLoginPage: false
+    user: ""
   };
 
   loggedUser = user => {
     this.setState({ user: user });
   };
 
-  handleClick = () => {
-    this.setState(currentState => {
-      return { viewLoginPage: !currentState.viewLoginPage };
-    });
-  };
-
   render() {
-    const { user, viewLoginPage } = this.state;
+    const { user } = this.state;
     return (
       <div className="App">
         <section className="App_Top_Container">
@@ -39,27 +32,7 @@ class App extends React.Component {
             </header>
           </Link>
           <section className="App_Top_LoginButton_Container">
-            <section>
-              {!user && (
-                <div>
-                  <button onClick={this.handleClick}>Log In Here</button>
-                  {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
-                </div>
-              )}
-              {user && (
-                <p>
-                  Welcome Back {user.username}!
-                  <button
-                    onClick={() => {
-                      return this.loggedUser("") & this.handleClick();
-                    }}
-                  >
-                    LOGOUT
-                  </button>{" "}
-                  <img src={user.avatar_url} alt="avatar"></img>
-                </p>
-              )}
-            </section>
+            <LoginButton loggedUser={this.loggedUser} user={this.user} />
           </section>
           <nav>
             <Navbar />

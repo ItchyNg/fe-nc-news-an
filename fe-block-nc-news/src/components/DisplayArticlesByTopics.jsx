@@ -54,6 +54,42 @@ class DisplayArticlesByTopics extends React.Component {
     this.setState({ [keyToUpdate]: inputValue });
   };
 
+  rocket = () => {
+    return (
+      <div className="rockbody">
+        <div className="rocket">
+          <div className="rocket-body">
+            <div className="body"></div>
+            <div className="fin fin-left"></div>
+            <div className="fin fin-right"></div>
+            <div className="window"></div>
+          </div>
+          <div className="exhaust-flame"></div>
+          <ul className="exhaust-fumes">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul className="star">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
   render() {
     const { articlesByTopic, isLoading, sortByArray, err } = this.state;
     if (err) {
@@ -65,39 +101,8 @@ class DisplayArticlesByTopics extends React.Component {
     return (
       <div>
         <section className="ListOfArticles_Container">
-          <section className="ListOfArticles_Right">
-            <div className="rockbody">
-              <div className="rocket">
-                <div className="rocket-body">
-                  <div className="body"></div>
-                  <div className="fin fin-left"></div>
-                  <div className="fin fin-right"></div>
-                  <div className="window"></div>
-                </div>
-                <div className="exhaust-flame"></div>
-                <ul className="exhaust-fumes">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <ul className="star">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          </section>
+          <section className="ListOfArticles_Right"> {this.rocket()}</section>
+
           <section className="ListOfArticles_SortBar">
             <select defaultValue="" name="sortBy" onClick={this.handleClick}>
               <option disabled value="">

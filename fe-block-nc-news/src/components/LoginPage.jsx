@@ -32,10 +32,6 @@ class Login extends React.Component {
           }
         });
       });
-
-    // this.setState({ username: event.target.value }, () => {
-    //   this.props.loggedUser(this.state.username);
-    // });
   };
 
   render() {

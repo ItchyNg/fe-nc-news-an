@@ -47,6 +47,42 @@ class DisplayArticlesById extends React.Component {
     });
   }
 
+  rocket = () => {
+    return (
+      <div className="rockbody">
+        <div className="rocket">
+          <div className="rocket-body">
+            <div className="body"></div>
+            <div className="fin fin-left"></div>
+            <div className="fin fin-right"></div>
+            <div className="window"></div>
+          </div>
+          <div className="exhaust-flame"></div>
+          <ul className="exhaust-fumes">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul className="star">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
   render() {
     const { articleById, isLoading, err } = this.state;
     const { username } = this.props;
@@ -59,7 +95,7 @@ class DisplayArticlesById extends React.Component {
     return (
       <div>
         <section className="Article_Container">
-          <p className="Article_Right"></p>
+          <div className="Article_Right">{this.rocket()}</div>
           <section className="Article_Title">
             <h2>{articleById.title}</h2>
             <p>

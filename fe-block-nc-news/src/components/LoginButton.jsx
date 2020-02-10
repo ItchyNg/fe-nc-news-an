@@ -12,14 +12,14 @@ class LoginButton extends React.Component {
     });
   };
   render() {
-    const { user } = this.props;
+    const { user, loggedUser } = this.props;
     const { viewLoginPage } = this.state;
     return (
       <section>
         {!user && (
           <div>
             <button onClick={this.handleClick}>Log In Here</button>
-            {viewLoginPage && <LoginPage loggedUser={this.loggedUser} />}
+            {viewLoginPage && <LoginPage loggedUser={loggedUser} />}
           </div>
         )}
         {user && (
@@ -27,7 +27,7 @@ class LoginButton extends React.Component {
             Welcome Back {user.username}!
             <button
               onClick={() => {
-                return this.loggedUser("") & this.handleClick();
+                return loggedUser("") & this.handleClick();
               }}
             >
               LOGOUT

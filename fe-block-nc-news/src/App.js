@@ -10,7 +10,7 @@ import DisplayArticlesById from "./components/DisplayArticlesById";
 import ErrorPage from "./ErrorPage";
 import LoginButton from "./components/LoginButton";
 import { Link } from "@reach/router";
-import "../src/testtt.scss";
+import "../src/rocketAnimation.scss";
 
 class App extends React.Component {
   state = {
@@ -32,7 +32,7 @@ class App extends React.Component {
             </header>
           </Link>
           <section className="App_Top_LoginButton_Container">
-            <LoginButton loggedUser={this.loggedUser} user={this.user} />
+            <LoginButton loggedUser={this.loggedUser} user={user} />
           </section>
           <nav>
             <Navbar />
@@ -55,22 +55,5 @@ class App extends React.Component {
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header />
-//       <LoginPage />
-//       <Navbar />
-//       <Router>
-//         <Homepage path="/" />
-//         <TopicsPage path="/topics" />
-//         <DisplayArticlesByTopics path="topics/:topic" />
-//         <DisplayArticlesById path="articles/:article_id" />
-//         <ErrorPage default />
-//       </Router>
-//     </div>
-//   );
-// }
 
 export default App;

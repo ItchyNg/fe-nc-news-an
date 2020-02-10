@@ -128,7 +128,6 @@ class DisplayArticlesByTopics extends React.Component {
                 DESC
               </button>
             </label>
-            {/*  */}
           </section>
 
           <section className="ListOfArticles_Articles">

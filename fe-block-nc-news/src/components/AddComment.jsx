@@ -1,5 +1,3 @@
-//accepts an object with {username: "example" body: "insert text"}
-
 import React from "react";
 import * as api from "../api";
 
@@ -8,10 +6,6 @@ class AddComment extends React.Component {
     body: "",
     msg: ""
   };
-
-  // componentDidUpdate() {
-  //   setTimeout(() => this.setState({ msg: "Comment Submitted" }), 3000);
-  // }
 
   handleChange = (value, key) => {
     this.setState({ [key]: value });

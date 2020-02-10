@@ -26,9 +26,7 @@ class AmendVote extends React.Component {
         currentState => {
           return {
             voteChange: currentState.voteChange + change,
-
             [type2]: currentState.type,
-            //when you are logged in a vote comment, then sortby it adds another
             [type]: !currentState.type2
           };
         },

@@ -132,13 +132,4 @@ class DisplayArticlesById extends React.Component {
   }
 }
 
-// const DisplayArticlesById = props => {
-//   const { article_id } = props;
-//   console.log(props.article_id);
-//   return api.getArticleById(article_id).then(res => {
-//     console.log(res.body);
-//     return <p>{res.body}</p>;
-//   });
-// };
-
 export default DisplayArticlesById;

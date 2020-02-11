@@ -140,7 +140,10 @@ class DisplayArticlesByTopics extends React.Component {
             <ul>
               {articlesByTopic.map(articles => (
                 <ol key={articles.title}>
-                  <Link to={`/articles/${articles.article_id}`}>
+                  <Link
+                    to={`/articles/${articles.article_id}`}
+                    style={{ textDecoration: "none" }}
+                  >
                     <nav className="ListofArticles_Cards_Info">
                       <time>
                         Created:

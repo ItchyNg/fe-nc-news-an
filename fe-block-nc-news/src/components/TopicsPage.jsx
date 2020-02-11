@@ -6,7 +6,7 @@ const TopicsPage = () => {
     <div>
       <section className="TopicsPage_Container">
         <header className="putBorder">
-          <h2>TopicPage</h2>
+          <h2>Topic</h2>
         </header>
         <section className="putBorder">
           <DisplayTopics />

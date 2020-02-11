@@ -453,9 +453,9 @@ ul {
   border-color: blue; */
   display: flex;
   padding: 3vw;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 
 .Indv_Topics {

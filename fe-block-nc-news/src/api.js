@@ -85,6 +85,6 @@ export const getCommentsByUserId = username => {
   return axios
     .get(`http://itch-nc-news-app.herokuapp.com/api/comments/user/${username}`)
     .then(({ data }) => {
-      return data.comment;
+      return data.comments;
     });
 };

@@ -7,6 +7,7 @@ import Homepage from "./components/Homepage";
 import TopicsPage from "./components/TopicsPage";
 import DisplayArticlesByTopics from "./components/DisplayArticlesByTopics";
 import DisplayArticlesById from "./components/DisplayArticlesById";
+import DisplayUserProfile from "./components/DisplayUserProfile";
 import ErrorPage from "./ErrorPage";
 import LoginButton from "./components/LoginButton";
 import { Link } from "@reach/router";
@@ -48,6 +49,7 @@ class App extends React.Component {
               username={user.username}
               path="articles/:article_id"
             />
+            <DisplayUserProfile path="/user/:username" />
             <ErrorPage default />
           </Router>
         </main>

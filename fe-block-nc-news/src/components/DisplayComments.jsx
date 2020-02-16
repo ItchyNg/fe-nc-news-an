@@ -3,6 +3,7 @@ import * as api from "../api";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
 import AmendVotes from "./AmendVotes";
+import { Link } from "@reach/router";
 
 class DisplayComments extends React.Component {
   state = {
@@ -108,8 +109,14 @@ class DisplayComments extends React.Component {
         </label>
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id} className="Comments_Card">
-            <h3 >
-              {comment.author === username ? "You" : comment.author} ||{" "}
+            <h3>
+              <Link
+                to={`/user/${comment.author}`}
+                style={{ textDecoration: "none", color: "black" }}
+                username={comment.author}
+              >
+                {comment.author === username ? "You" : comment.author} ||
+              </Link>
               <time>
                 Posted: {new Date(comment.created_at).toLocaleString()}
               </time>

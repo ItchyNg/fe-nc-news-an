@@ -160,7 +160,14 @@ class DisplayArticlesByTopics extends React.Component {
                   <section className="ListofArticles_Cards_Title">
                     <h1>{articles.title}</h1>
                     <h2>
-                      <b>Author:</b> {articles.author}
+                      <b>Author:</b>
+                      <Link
+                        to={`/user/${articles.author}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                        username={articles.author}
+                      >
+                        {articles.author}
+                      </Link>
                     </h2>
 
                     <p>

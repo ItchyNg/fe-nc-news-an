@@ -3,6 +3,7 @@ import * as api from "../api";
 import DisplayComments from "./DisplayComments";
 import AmendVotes from "./AmendVotes";
 import ErrorPage from "../ErrorPage";
+import { Link } from "@reach/router";
 
 class DisplayArticlesById extends React.Component {
   state = {
@@ -98,10 +99,16 @@ class DisplayArticlesById extends React.Component {
           <div className="Article_Right">{this.rocket()}</div>
           <section className="Article_Title">
             <h2>{articleById.title}</h2>
-            <p>
-              {articleById.author} ||{" "}
-              {new Date(articleById.created_at).toLocaleString()}
-            </p>
+            <Link
+              to={`/user/${articleById.author}`}
+              style={{ textDecoration: "none", color: "white" }}
+              username={articleById.author}
+            >
+              <p>
+                {articleById.author}
+                || {new Date(articleById.created_at).toLocaleString()}
+              </p>{" "}
+            </Link>
             <section>
               <AmendVotes
                 username={username}

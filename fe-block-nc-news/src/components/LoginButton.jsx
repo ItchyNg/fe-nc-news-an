@@ -32,7 +32,6 @@ class LoginButton extends React.Component {
             >
               LOGOUT
             </button>{" "}
-            <img src={user.avatar_url} alt="avatar"></img>
           </p>
         )}
       </section>

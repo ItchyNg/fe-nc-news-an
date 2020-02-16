@@ -81,32 +81,35 @@ class DisplayComments extends React.Component {
     return (
       <div>
         {" "}
-        <label onClick={this.handleToggle}>
-          <button>ADD A COMMENT</button>
-        </label>
-        {this.state.viewToggler && (
-          <AddComment
-            scrollToTop={this.props.scrollToTop}
-            username={username}
-            article_id={this.props.article_id}
-            addCommentToArray={this.addCommentToArray}
-          />
-        )}
-        <h3>Comments:</h3>
-        <label onClick={this.handleClick}>
-          <button name="created_at" value="desc">
-            Newest
-          </button>
-          <button name="created_at" value="asc">
-            Oldest
-          </button>
-          <button name="votes" value="desc">
-            Most Popular
-          </button>
-          <button name="votes" value="asc">
-            Least Popular
-          </button>
-        </label>
+        <section className="Comments_Top">
+          <label onClick={this.handleToggle}>
+            <button>ADD A COMMENT</button>
+          </label>
+          {this.state.viewToggler && (
+            <AddComment
+              scrollToTop={this.props.scrollToTop}
+              username={username}
+              article_id={this.props.article_id}
+              addCommentToArray={this.addCommentToArray}
+            />
+          )}
+
+          <h3>Comments:</h3>
+          <label onClick={this.handleClick}>
+            <button name="created_at" value="desc">
+              Newest
+            </button>
+            <button name="created_at" value="asc">
+              Oldest
+            </button>
+            <button name="votes" value="desc">
+              Most Popular
+            </button>
+            <button name="votes" value="asc">
+              Least Popular
+            </button>
+          </label>
+        </section>
         {commentsByArticleId.map(comment => (
           <section key={comment.comment_id} className="Comments_Card">
             <h3>

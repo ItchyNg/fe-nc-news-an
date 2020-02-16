@@ -105,9 +105,9 @@ class DisplayArticlesById extends React.Component {
               username={articleById.author}
             >
               <p>
-                {articleById.author}
-                || {new Date(articleById.created_at).toLocaleString()}
-              </p>{" "}
+                {articleById.author} ||{" "}
+                {new Date(articleById.created_at).toLocaleString()}
+              </p>
             </Link>
             <section>
               <AmendVotes

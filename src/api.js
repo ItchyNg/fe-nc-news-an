@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getListOfTopics = () => {
   return axios
-    .get("http://itch-nc-news-app.herokuapp.com/api/topics")
+    .get("https://itch-nc-news-app.herokuapp.com/api/topics")
     .then(({ data }) => {
       return data.topics;
     });
@@ -10,7 +10,7 @@ export const getListOfTopics = () => {
 
 export const getListOfArticles = (author, topic, sort_by, order) => {
   return axios
-    .get("http://itch-nc-news-app.herokuapp.com/api/articles", {
+    .get("https://itch-nc-news-app.herokuapp.com/api/articles", {
       params: {
         author: author,
         topic: topic,
@@ -25,7 +25,7 @@ export const getListOfArticles = (author, topic, sort_by, order) => {
 
 export const getArticleById = article_id => {
   return axios
-    .get(`http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}`)
+    .get(`https://itch-nc-news-app.herokuapp.com/api/articles/${article_id}`)
     .then(({ data }) => {
       return data.article;
     });
@@ -34,7 +34,7 @@ export const getArticleById = article_id => {
 export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return axios
     .get(
-      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
+      `https://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
       {
         params: {
           sort_by: sort_by,
@@ -50,7 +50,7 @@ export const getCommentsByArticleId = (article_id, sort_by, order) => {
 export const postAnItem = (article_id, input) => {
   return axios
     .post(
-      `http://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
+      `https://itch-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`,
       input
     )
     .then(({ data }) => {
@@ -60,14 +60,17 @@ export const postAnItem = (article_id, input) => {
 
 export const deleteComment = comment_id => {
   return axios.delete(
-    `http://itch-nc-news-app.herokuapp.com/api/comments/${comment_id}`
+    `https://itch-nc-news-app.herokuapp.com/api/comments/${comment_id}`
   ); //should have a then and return item to check if successful??
 };
 
 export const patchVote = (location, id, input) => {
   //comments or articles for location
   return axios
-    .patch(`http://itch-nc-news-app.herokuapp.com/api/${location}/${id}`, input)
+    .patch(
+      `https://itch-nc-news-app.herokuapp.com/api/${location}/${id}`,
+      input
+    )
     .then(({ data }) => {
       return data;
     });
@@ -75,7 +78,7 @@ export const patchVote = (location, id, input) => {
 
 export const getUser = username => {
   return axios
-    .get(`http://itch-nc-news-app.herokuapp.com/api/users/${username}`)
+    .get(`https://itch-nc-news-app.herokuapp.com/api/users/${username}`)
     .then(({ data }) => {
       return data.user;
     });
@@ -83,7 +86,7 @@ export const getUser = username => {
 
 export const getCommentsByUserId = username => {
   return axios
-    .get(`http://itch-nc-news-app.herokuapp.com/api/comments/user/${username}`)
+    .get(`https://itch-nc-news-app.herokuapp.com/api/comments/user/${username}`)
     .then(({ data }) => {
       return data.comments;
     });

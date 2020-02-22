@@ -1,5 +1,4 @@
 import React from "react";
-// import DisplayArticles from "./DisplayArticles";
 import DisplayArticlesByTopics from "./DisplayArticlesByTopics";
 
 const Homepage = () => {

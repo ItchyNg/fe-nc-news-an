@@ -10,7 +10,6 @@ class DisplayComments extends React.Component {
     commentsByArticleId: [],
     sortBy: null || "votes",
     orderBy: null || "desc",
-    // username: null || "jessjelly", //prob have to props this to addComments
     isLoading: true,
     viewToggler: false
   };
@@ -54,7 +53,7 @@ class DisplayComments extends React.Component {
   };
 
   updateCommentsAfterDeletedComment = comment_id => {
-    const { commentsByArticleId } = this.state; //filters through the array of comments to remove the one that was delete, then setState to re-render the page
+    const { commentsByArticleId } = this.state;
     let updatedComments = commentsByArticleId.filter(
       comments => comments.comment_id !== comment_id
     );
@@ -147,15 +146,5 @@ class DisplayComments extends React.Component {
     );
   }
 }
-
-// const DisplayComments = props => {
-//   console.log(props.article_id, "<<<<<<PROP");
-//   return (
-//     <div>
-//       <h2>Display some comments here</h2>
-//       {api.getCommentsByArticleId(props.article_id))}
-//     </div>
-//   );
-// };
 
 export default DisplayComments;

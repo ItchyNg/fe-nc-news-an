@@ -5,10 +5,10 @@ const TopicsPage = () => {
   return (
     <div>
       <section className="TopicsPage_Container">
-        <header className="putBorder">
+        <header>
           <h2>Topic</h2>
         </header>
-        <section className="putBorder">
+        <section>
           <DisplayTopics />
         </section>
       </section>

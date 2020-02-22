@@ -96,9 +96,8 @@ ul {
 }
 
 .ListOfArticles_Container {
-  /* border-style: dashed;
-  border-color: green; */
   display: grid;
+  margin-top: 20px;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 30px auto;
   grid-template-areas:
@@ -107,8 +106,6 @@ ul {
 }
 @media (max-width: 550px) {
   .ListOfArticles_Container {
-    /* border-style: dashed;
-  border-color: green; */
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 30px auto;
@@ -129,24 +126,18 @@ ul {
 }
 
 .ListOfArticles_SortBar {
-  /* border-style: dashed;
-  border-color: green; */
   grid-area: top;
   color: white;
   justify-self: center;
 }
 
 .ListOfArticles_Articles {
-  /* border-style: dashed;
-  border-color: green; */
   display: flex;
   flex-direction: row;
   grid-area: left;
 }
 
 .ListOfArticles_Articles ol {
-  /* border-style: dashed;
-  border-color: brown; */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: auto auto;
@@ -160,17 +151,9 @@ ul {
   border-radius: 25px;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 51);
-  /* background-image: linear-gradient(
-    to left,
-    rgb(151, 151, 151),
-    rgb(17, 20, 62)
-  ); */
-  /* replace the align-items */
 }
 
 .ListofArticles_Cards_Info {
-  /* border-style: dashed;
-  border-color: brown; */
   grid-area: right;
   display: grid;
   grid-template-rows: auto 1fr 1fr;
@@ -197,15 +180,13 @@ ul {
   font-size: calc(15px + 3vh);
 
   color: rgb(0, 0, 51);
-  /* border-top: 10px double white;
-  border-bottom: 10px double white; */
 }
 
 .ListofArticles_Cards_Info p {
   display: inline-block;
 
   padding: 0.4em 1.2em;
-  /* border: 0.7em double rgb(205, 149, 12); */
+
   border-top: 10px double white;
   border-right: 10px double white;
   border-bottom: 10px double white;
@@ -233,8 +214,6 @@ ul {
 }
 
 .ListofArticles_Cards_Title {
-  /* border-style: dashed;
-  border-color: brown; */
   grid-area: left;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -246,8 +225,6 @@ ul {
 }
 
 .ListofArticles_Cards_Title h1 {
-  /* border-style: dashed;
-  border-color: green; */
   align-self: center;
   grid-area: top;
   text-align: left;
@@ -255,8 +232,6 @@ ul {
   text-overflow: ellipsis;
 }
 .ListofArticles_Cards_Title h2 {
-  /* border-style: dashed;
-  border-color: green; */
   grid-area: left;
   text-align: left;
   align-self: flex-end;
@@ -270,8 +245,6 @@ ul {
 }
 
 .ListofArticles_Cards_Title p {
-  /* border-style: dashed;
-  border-color: green; */
   grid-area: right;
   text-align: center;
   align-self: flex-end;
@@ -279,8 +252,6 @@ ul {
 }
 
 .Article_Container {
-  /* border-style: dashed;
-  border-color: green; */
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: 200px minmax(40vh, auto) auto;
@@ -299,8 +270,6 @@ ul {
 }
 @media (max-width: 550px) {
   .Article_Container {
-    /* border-style: dashed;
-  border-color: green; */
     grid-template-areas:
       "top top"
       "center center"
@@ -322,8 +291,6 @@ ul {
 }
 
 .Article_Body p {
-  /* border-style: dashed;
-  border-color: blue; */
   margin: 1vh 5vw 1vh 5vw;
   padding: 1vh 4vh 1vh 4vh;
 
@@ -337,8 +304,7 @@ ul {
 
 .Article_Title {
   grid-area: top;
-  /* border-style: dashed;
-  border-color: green; */
+
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 3fr 1fr;
@@ -350,8 +316,6 @@ ul {
 }
 
 .Article_Title h2 {
-  /* border-style: dashed;
-  border-color: brown; */
   grid-area: topleft;
   display: flex;
   text-decoration-line: underline;
@@ -362,8 +326,7 @@ ul {
 
 .Article_Title p {
   grid-area: left;
-  /* border-style: dashed;
-  border-color: purple; */
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -372,8 +335,7 @@ ul {
 
 .Article_Title section {
   grid-area: topright;
-  /* border-style: dashed;
-  border-color: brown; */
+
   font-size: 15px;
   margin: 0px;
   align-self: auto;
@@ -381,8 +343,7 @@ ul {
 
 .Article_Title label {
   grid-area: right;
-  /* border-style: dashed;
-  border-color: brown; */
+
   align-self: stretch;
   font-size: 25px;
   color: rgb(238, 178, 27);
@@ -395,14 +356,11 @@ ul {
 
 .Article_Comments {
   grid-area: right;
-  /* border-style: dashed;
-  border-color: brown; */
+
   grid-area: left;
 }
 
 .Button_Container {
-  /* border-style: dashed;
-  border-color: black; */
   display: block;
 }
 
@@ -420,8 +378,6 @@ ul {
 }
 
 .Comments_Card {
-  /* border-style: dashed;
-  border-color: blue; */
   border-style: double;
   border-color: #e3a559;
   background-color: white;
@@ -455,15 +411,11 @@ ul {
   word-break: break-all;
 }
 .TopicsPage_Container {
-  /* border-style: dashed;
-  border-color: green; */
   display: grid;
   grid-template-rows: 60px auto;
 }
 
 .ListTopics {
-  /* border-style: dashed;
-  border-color: blue; */
   display: flex;
   padding: 3vw;
   flex-direction: column;
@@ -526,17 +478,10 @@ ul {
   text-decoration-style: double;
   text-decoration-color: rgb(150, 112, 18);
 }
-/* .putBorder {
-  /* border-style: dashed;
-  border-width: 1px; */
-/* border-color: grey; */
-/* } */
 
 main {
   display: grid;
   grid-area: article;
-  /* border-style: dashed;
-  border-color: red; */
 }
 
 .Border {
